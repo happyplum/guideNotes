@@ -1,0 +1,12 @@
+{
+	"scripts": {
+		"dev": "vuepress dev docs",
+		"build": "vuepress build docs",
+		"docs:dev": "vuepress dev docs",
+		"docs:build": "vuepress build docs",
+		"depoly": "depoly.sh"
+	},
+	"devDependencies": {
+		"vuepress": "^1.9.7"
+	}
+}
