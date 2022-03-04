@@ -14,15 +14,67 @@ module.exports = {
 		repoLabel: "Github",
 		nav: [
 			{
-				text: "测试测试",
-				link: "/notes/",
+				text: "前端开发笔记",
+				items: [
+					{
+						text: "JavaScript",
+						link: "/javascript/",
+					},
+					{
+						text: "TypeScript",
+						link: "/typescript/",
+					},
+					{
+						text: "Vue",
+						items: [
+							{
+								text: "Vue2",
+								link: "/vue/vue2/",
+							},
+							{
+								text: "Vue3",
+								link: "/vue/vue3/",
+							},
+						],
+					},
+				],
+			},
+			{
+				text: "脚手架",
+				items: [
+					{
+						text: "VueCLI",
+						link: "/vuecli/vuecli/",
+					},
+					{
+						text: "Vite",
+						link: "/vuecli/vite/",
+					},
+				],
 			},
 			{
 				text: "打包工具",
 				items: [
 					{
 						text: "Rollup",
-						link: "/rollup/",
+						link: "/builde/rollup/",
+					},
+					{
+						text: "Webpack",
+						link: "/builde/webpack/",
+					},
+				],
+			},
+			{
+				text: "个人",
+				items: [
+					{
+						text: "docker",
+						link: "/docker/",
+					},
+					{
+						text: "nas/sPC",
+						link: "/nastools/",
 					},
 				],
 			},
