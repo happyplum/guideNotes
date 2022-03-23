@@ -76,6 +76,10 @@ module.exports = {
 						text: "nas/sPC",
 						link: "/nastools/",
 					},
+					{
+						text: "视频编码",
+						items: [{ text: "ffmpeg", link: "/videoencodes/ffmpeg" }],
+					},
 				],
 			},
 		],
