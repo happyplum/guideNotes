@@ -1,3 +1,4 @@
+const { removePlugin, PLUGINS } = require("@vuepress/markdown");
 module.exports = {
 	title: "PlumNotes",
 	description: "李振宇的个人笔记",
@@ -6,6 +7,9 @@ module.exports = {
 	port: 3000,
 	markdown: {
 		lineNumbers: false,
+		chainMarkdown(config) {
+			removePlugin(config, PLUGINS.EMOJI);
+		},
 	},
 	themeConfig: {
 		lastUpdated: "最后更新时间",
@@ -78,7 +82,7 @@ module.exports = {
 					},
 					{
 						text: "视频编码",
-						items: [{ text: "ffmpeg", link: "/videoencodes/ffmpeg" }],
+						items: [{ text: "ffmpeg", link: "/videoencodes/ffmpeg/" }],
 					},
 				],
 			},
