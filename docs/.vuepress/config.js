@@ -52,7 +52,13 @@ module.exports = {
 					},
 					{
 						text: "Vite",
-						link: "/vuecli/vite/",
+						items: [
+							{ text: "cli迁移", link: "/vuecli/vite/cli2vite/" },
+							{
+								text: "vit.config笔记",
+								link: "/vuecli/vite/config/",
+							},
+						],
 					},
 				],
 			},
