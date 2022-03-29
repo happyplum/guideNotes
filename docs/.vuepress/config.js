@@ -29,6 +29,10 @@ module.exports = {
 						link: "/typescript/",
 					},
 					{
+						text: "JSDoc",
+						link: "/jsdoc/",
+					},
+					{
 						text: "Vue",
 						items: [
 							{
