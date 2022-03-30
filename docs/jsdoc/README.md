@@ -1,3 +1,7 @@
+---
+sidebar: auto
+---
+
 # JSDoc
 
 ## 命令名描述

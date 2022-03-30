@@ -1,3 +1,7 @@
+---
+sidebar: auto
+---
+
 # 关于 Vue-Cli 迁移到 Vite
 
 本文用于笔记把项目从 vue-cli 迁移到 vite 环境所需的大致步骤和具体区别

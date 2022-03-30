@@ -67,15 +67,24 @@ module.exports = {
 				],
 			},
 			{
-				text: "打包工具",
+				text: "工具",
 				items: [
 					{
-						text: "Rollup",
-						link: "/builde/rollup/",
+						text: "打包相关",
+						items: [
+							{
+								text: "Rollup",
+								link: "/builde/rollup/",
+							},
+							{
+								text: "Webpack",
+								link: "/builde/webpack/",
+							},
+						],
 					},
 					{
-						text: "Webpack",
-						link: "/builde/webpack/",
+						text: "git",
+						link: "/notes/git/",
 					},
 				],
 			},
