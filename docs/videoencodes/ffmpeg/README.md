@@ -30,6 +30,26 @@ ffmpeg -hwaccel cuda -i d:\test\1.mp4 -y 3.noparams.mp4
 
 3.74 GB VMAF score: 93.878954
 
+    2022年4月1日 尝试新增了crf21和fast crf21,19的配置,没想到fast crf21 又小质量又高,但是为了通用考虑还是修改为 普通 crf21 方案
+
+```
+ffmpeg -hwaccel cuda -i d:\test\1.mp4 -y -map 0 -pix_fmt yuv420p10le -c copy -c:v:0 libx265 -x265-params "no-sao=1:me=2:merange=24" -tune grain -crf 21 d:\test\2.h265.noSlow.crf21.mp4
+```
+
+5.03 GB VMAF score: 97.817357
+
+```
+ffmpeg -hwaccel cuda -i d:\test\1.mp4 -y -map 0 -pix_fmt yuv420p10le -c copy -c:v:0 libx265 -x265-params "no-sao=1:me=2:merange=24" -tune grain -crf 21 -preset fast d:\test\2.h265.fast.crf21.mp4
+```
+
+4.80 GB VMAF score: 97.103569
+
+```
+ffmpeg -hwaccel cuda -i d:\test\1.mp4 -y -map 0 -pix_fmt yuv420p10le -c copy -c:v:0 libx265 -x265-params "no-sao=1:me=2:merange=24" -tune grain -crf 19 -preset fast d:\test\2.h265.fast.crf19.mp4
+```
+
+6.43 GB VMAF score: 97.576508
+
 ## NVIDA(RTX30)
 
 ```
