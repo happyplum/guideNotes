@@ -4,9 +4,11 @@ sidebar: auto
 
 # ReactNative
 
+关于我在 ReactNative 的一些笔记
+
 ## 关于 build 生成 apk
 
-1. 请在 java 中找到 keytool.exe
+1. 请在 java 中找到 `keytool.exe`
    然后运行以下命令
 
     ```cmd
@@ -15,8 +17,8 @@ sidebar: auto
 
     然后根据指引输入发行信息和密码后生成 `my-release-key.keystore` 文件
 
-2. 找到 ReactNative 下的`android/app/build.gradle`,进行修改
-   在 signingConfigs 中添加 release 信息,xxx 部分为第一步生成的密码
+2. 找到 `ReactNative` 下的`android/app/build.gradle`,进行修改
+   在 **signingConfigs** 中添加 **release** 信息,**xxx** 部分为第一步生成的密码
 
     ```
     signingConfigs {
@@ -35,7 +37,7 @@ sidebar: auto
     }
     ```
 
-    在 buildTypes 中添加 release 信息
+    在 **buildTypes** 中添加 **release** 信息
 
     ```
      release {
@@ -46,7 +48,7 @@ sidebar: auto
     ```
 
 3. 编译
-   在 android 目录下运行命令`./gradlew assembleRelease`
+   在 `android` 目录下运行命令`./gradlew assembleRelease`
 
 4. 输出
    目录在`\android\app\build\outputs\apk\release\app-release.apk`
@@ -56,7 +58,7 @@ sidebar: auto
 1.  增加 alibaba 的 maven 库
     找到 `android/build.gradle` 在 buildscript 和 allprojects 的 repositories 中增加仓库地址
 
-    ```
+    ```gradle
     buildscript{
         ...
         repositories{
@@ -67,7 +69,7 @@ sidebar: auto
     }
     ```
 
-    ```
+    ```gradle
     allprojects {
         ...
         repositories {
@@ -78,9 +80,9 @@ sidebar: auto
     }
     ```
 
-2.  修改 `android/app/build.gradle` 在 dependencies 中 添加相应的包
+2.  修改 `android/app/build.gradle` 在 **dependencies** 中 添加相应的包
 
-    ```
+    ```gradle
     dependencies{
         ...
         implementation 'com.aliyun.ams:alicloud-android-push:3.7.5'
@@ -102,7 +104,7 @@ sidebar: auto
     }
     ```
 
-3.  修改 `android/app/src/main/AndroidManifest.xml` 中<application>末尾处添加 alibaba 组件的配置信息
+3.  修改 `android/app/src/main/AndroidManifest.xml` 中`<application>`末尾处添加 alibaba 组件的配置信息
 
     ```xml
     <application>
@@ -150,7 +152,7 @@ sidebar: auto
     </application>
     ```
 
-4.  下载[官方样例](https://github.com/aliyun/alicloud-android-demo/tree/master/mpush_reactnative_android_demo/AwesomeProject),将其中`alicloud-android-demo/mpush_reactnative_android_demo/AwesomeProject/android/app/src/main/java/com/awesomeproject/`下的 **push 模块**,**ContVar**,复制到项目中,修改关键字 awesomeproject 为你自己的 java.com 包名称
+4.  下载[官方样例](https://github.com/aliyun/alicloud-android-demo/tree/master/mpush_reactnative_android_demo/AwesomeProject),将其中`alicloud-android-demo/mpush_reactnative_android_demo/AwesomeProject/android/app/src/main/java/com/awesomeproject/`下的 **push 模块**,**ContVar**,复制到项目中,修改关键字 **awesomeproject** 为你自己的 **java.com.xxx** 包名称
 
 5.  MainApplication 添加 import 模块
 
@@ -282,7 +284,9 @@ sidebar: auto
 
 ## 关于上网权限
 
-    新版本的android由于默认只支持https链接,http等明文链接需要添加自定义权限
+::: tip
+新版本的 android 由于默认只支持 https 链接,http 等明文链接需要添加自定义权限
+:::
 
 1. 在 res 中新增 `network_security_config.xml`
 
@@ -297,7 +301,7 @@ sidebar: auto
     </network-security-config>
     ```
 
-2. 在`AndroidManifest.xml`的<application>中添加配置
+2. 在`AndroidManifest.xml`的`<application>`中添加配置
    `android:networkSecurityConfig="@xml/network_security_config"`
 
-3. 也在`AndroidManifest.xml`的<application>中添加`android:usesCleartextTraffic="true"`
+3. 也在`AndroidManifest.xml`的`<application>`中添加`android:usesCleartextTraffic="true"`
