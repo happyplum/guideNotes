@@ -27,7 +27,7 @@ module.exports = {
 					{
 						text: "TypeScript",
 						items: [
-							{ text: "TypeScript", link: "/typescript/" },
+							{ text: "TypeScript", link: "/typescript/typescript/" },
 							{ text: "ts.config", link: "/typescript/tsconfig/" },
 						],
 					},
