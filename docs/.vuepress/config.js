@@ -26,12 +26,20 @@ module.exports = {
 					},
 					{
 						text: "TypeScript",
-						link: "/typescript/",
+						items: [
+							{ text: "TypeScript", link: "/typescript/" },
+							{ text: "ts.config", link: "/typescript/tsconfig/" },
+						],
 					},
 					{
 						text: "JSDoc",
 						link: "/jsdoc/",
 					},
+				],
+			},
+			{
+				text: "前端开发笔记2",
+				items: [
 					{
 						text: "Vue",
 						items: [
