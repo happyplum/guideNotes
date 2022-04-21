@@ -4,7 +4,7 @@ sidebar: auto
 
 # 关于开发一个自定义工具的配置笔记
 
-## 1.package.json
+## package.json
 
 写笔记时开发的工具为 swaggerconvapi2,目前已发布到 npm,开发目的为较简单的通过 swagger 通过 config 文件配合生成 api.ts,api.d.ts,api.params.d.ts
 
