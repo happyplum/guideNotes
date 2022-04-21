@@ -31,10 +31,6 @@ module.exports = {
 							{ text: "ts.config", link: "/typescript/tsconfig/" },
 						],
 					},
-					{
-						text: "JSDoc",
-						link: "/jsdoc/",
-					},
 				],
 			},
 			{
@@ -62,6 +58,10 @@ module.exports = {
 							},
 						],
 					},
+					{
+						text: "JSDoc",
+						link: "/jsdoc/",
+					},
 				],
 			},
 			{
@@ -80,6 +80,10 @@ module.exports = {
 								link: "/vuecli/vite/config/",
 							},
 						],
+					},
+					{
+						text: "工具",
+						items: [{ text: "自定义工具", link: "/tools/cli/" }],
 					},
 				],
 			},
