@@ -9,5 +9,6 @@
 	},
 	"devDependencies": {
 		"vuepress": "^1.9.7"
-	}
+	},
+	"packageManager": "yarn@3.2.0"
 }
