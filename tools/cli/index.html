@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>关于开发一个自定义工具的配置笔记 | PlumNotes</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/guideNotes/icon.png">
+    <meta name="description" content="李振宇的个人笔记">
+    
+    <link rel="preload" href="/guideNotes/assets/css/0.styles.9de59f97.css" as="style"><link rel="preload" href="/guideNotes/assets/js/app.f4c14fc7.js" as="script"><link rel="preload" href="/guideNotes/assets/js/2.66c349bf.js" as="script"><link rel="preload" href="/guideNotes/assets/js/18.9fb2220c.js" as="script"><link rel="prefetch" href="/guideNotes/assets/js/10.623a551f.js"><link rel="prefetch" href="/guideNotes/assets/js/11.6882f2e0.js"><link rel="prefetch" href="/guideNotes/assets/js/12.7f6aa898.js"><link rel="prefetch" href="/guideNotes/assets/js/13.15f599c5.js"><link rel="prefetch" href="/guideNotes/assets/js/14.3c8c24c3.js"><link rel="prefetch" href="/guideNotes/assets/js/15.560bc493.js"><link rel="prefetch" href="/guideNotes/assets/js/16.9b44bca0.js"><link rel="prefetch" href="/guideNotes/assets/js/17.280ca8f0.js"><link rel="prefetch" href="/guideNotes/assets/js/19.a304f2c5.js"><link rel="prefetch" href="/guideNotes/assets/js/20.bb81e47f.js"><link rel="prefetch" href="/guideNotes/assets/js/21.95aeba4a.js"><link rel="prefetch" href="/guideNotes/assets/js/22.387bd4ca.js"><link rel="prefetch" href="/guideNotes/assets/js/23.f2fab386.js"><link rel="prefetch" href="/guideNotes/assets/js/24.55f38def.js"><link rel="prefetch" href="/guideNotes/assets/js/25.4e61bdcd.js"><link rel="prefetch" href="/guideNotes/assets/js/26.6fa421ea.js"><link rel="prefetch" href="/guideNotes/assets/js/27.7b033025.js"><link rel="prefetch" href="/guideNotes/assets/js/28.fb5d0f61.js"><link rel="prefetch" href="/guideNotes/assets/js/3.7f9388a7.js"><link rel="prefetch" href="/guideNotes/assets/js/4.55e7b4da.js"><link rel="prefetch" href="/guideNotes/assets/js/5.64a00a3a.js"><link rel="prefetch" href="/guideNotes/assets/js/6.a3d5d638.js"><link rel="prefetch" href="/guideNotes/assets/js/7.71896494.js"><link rel="prefetch" href="/guideNotes/assets/js/8.2bc51a6d.js"><link rel="prefetch" href="/guideNotes/assets/js/9.01c5722c.js">
+    <link rel="stylesheet" href="/guideNotes/assets/css/0.styles.9de59f97.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/guideNotes/" class="home-link router-link-active"><!----> <span class="site-name">PlumNotes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端开发笔记" class="dropdown-title"><span class="title">前端开发笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端开发笔记" class="mobile-dropdown-title"><span class="title">前端开发笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/javascript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><h4>
+          TypeScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/typescript/typescript/" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/typescript/tsconfig/" class="nav-link">
+  ts.config
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端开发笔记2" class="dropdown-title"><span class="title">前端开发笔记2</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端开发笔记2" class="mobile-dropdown-title"><span class="title">前端开发笔记2</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/jsdoc/" class="nav-link">
+  JSDoc
+</a></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/vue/vue2/" class="nav-link">
+  Vue2
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/vue/vue3/" class="nav-link">
+  Vue3
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/react/reactnative/" class="nav-link">
+  ReactNative
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="脚手架" class="dropdown-title"><span class="title">脚手架</span> <span class="arrow down"></span></button> <button type="button" aria-label="脚手架" class="mobile-dropdown-title"><span class="title">脚手架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/vuecli/vuecli/" class="nav-link">
+  VueCLI
+</a></li><li class="dropdown-item"><h4>
+          Vite
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/vuecli/vite/cli2vite/" class="nav-link">
+  cli迁移
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/vuecli/vite/config/" class="nav-link">
+  vit.config笔记
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/tools/cli/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  自定义工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          打包相关
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/builde/rollup/" class="nav-link">
+  Rollup
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/builde/webpack/" class="nav-link">
+  Webpack
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/guideNotes/notes/git/" class="nav-link">
+  git
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="个人" class="dropdown-title"><span class="title">个人</span> <span class="arrow down"></span></button> <button type="button" aria-label="个人" class="mobile-dropdown-title"><span class="title">个人</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/nastools/" class="nav-link">
+  nas/sPC
+</a></li><li class="dropdown-item"><!----> <a href="/guideNotes/docker/" class="nav-link">
+  docker
+</a></li><li class="dropdown-item"><h4>
+          gitlab
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/gitlab/gitlab/" class="nav-link">
+  gitlab
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/gitlab/gitlabrunner/" class="nav-link">
+  gitlabRunner
+</a></li></ul></li><li class="dropdown-item"><h4>
+          视频编码
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/videoencodes/ffmpeg/" class="nav-link">
+  ffmpeg
+</a></li></ul></li></ul></div></div> <a href="https://github.com/happyplum/guideNotes" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端开发笔记" class="dropdown-title"><span class="title">前端开发笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端开发笔记" class="mobile-dropdown-title"><span class="title">前端开发笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/javascript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><h4>
+          TypeScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/typescript/typescript/" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/typescript/tsconfig/" class="nav-link">
+  ts.config
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端开发笔记2" class="dropdown-title"><span class="title">前端开发笔记2</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端开发笔记2" class="mobile-dropdown-title"><span class="title">前端开发笔记2</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/jsdoc/" class="nav-link">
+  JSDoc
+</a></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/vue/vue2/" class="nav-link">
+  Vue2
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/vue/vue3/" class="nav-link">
+  Vue3
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/react/reactnative/" class="nav-link">
+  ReactNative
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="脚手架" class="dropdown-title"><span class="title">脚手架</span> <span class="arrow down"></span></button> <button type="button" aria-label="脚手架" class="mobile-dropdown-title"><span class="title">脚手架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/vuecli/vuecli/" class="nav-link">
+  VueCLI
+</a></li><li class="dropdown-item"><h4>
+          Vite
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/vuecli/vite/cli2vite/" class="nav-link">
+  cli迁移
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/vuecli/vite/config/" class="nav-link">
+  vit.config笔记
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/tools/cli/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  自定义工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          打包相关
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/builde/rollup/" class="nav-link">
+  Rollup
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/builde/webpack/" class="nav-link">
+  Webpack
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/guideNotes/notes/git/" class="nav-link">
+  git
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="个人" class="dropdown-title"><span class="title">个人</span> <span class="arrow down"></span></button> <button type="button" aria-label="个人" class="mobile-dropdown-title"><span class="title">个人</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/nastools/" class="nav-link">
+  nas/sPC
+</a></li><li class="dropdown-item"><!----> <a href="/guideNotes/docker/" class="nav-link">
+  docker
+</a></li><li class="dropdown-item"><h4>
+          gitlab
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/gitlab/gitlab/" class="nav-link">
+  gitlab
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/gitlab/gitlabrunner/" class="nav-link">
+  gitlabRunner
+</a></li></ul></li><li class="dropdown-item"><h4>
+          视频编码
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/videoencodes/ffmpeg/" class="nav-link">
+  ffmpeg
+</a></li></ul></li></ul></div></div> <a href="https://github.com/happyplum/guideNotes" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>关于开发一个自定义工具的配置笔记</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guideNotes/tools/cli/#package-json" class="sidebar-link">package.json</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/guideNotes/tools/cli/#rollup" class="sidebar-link">rollup</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/guideNotes/tools/cli/#bin" class="sidebar-link">bin</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/guideNotes/tools/cli/#关于发布" class="sidebar-link">关于发布</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="关于开发一个自定义工具的配置笔记"><a href="#关于开发一个自定义工具的配置笔记" class="header-anchor">#</a> 关于开发一个自定义工具的配置笔记</h1> <h2 id="package-json"><a href="#package-json" class="header-anchor">#</a> package.json</h2> <p>写笔记时开发的工具为 swaggerconvapi2,目前已发布到 npm,开发目的为较简单的通过 swagger 通过 config 文件配合生成 api.ts,api.d.ts,api.params.d.ts</p> <ul><li>预期牵扯到的功能为,传参,硬盘读写,打包,ts 生成,</li> <li>后期可能考虑使用额外的指令, ts 重写,生成完毕后使用 prettier 格式化</li> <li>打包工具选定为 rollup</li> <li>使用的仓库管理工具为 yarn,version&gt;2</li> <li>使用的编写方式为 esm</li> <li>需要有 bin 文件支持全局安装使用</li></ul> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>本配置文件包含现在用的,和下版本考虑添加的组件,可以无视</p></div> <p>根据需求写的 package.json 如下</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;swaggerconvapi2&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;version&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1.0.6&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;swaggerConvApi2 工厂化 新增配置项,配置文件 新增模板 独立函数解析封装,非开源项目,请见谅&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;module&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;main&quot;</span><span class="token operator">:</span> <span class="token string">&quot;./index.cjs&quot;</span><span class="token punctuation">,</span> <span class="token comment">//引用时调用的入口文件,未配置bin时可安装swaggerconvapi2后npx调用</span>
+	<span class="token property">&quot;bin&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token comment">//执行文件,方便全局安装后调用,使用的调用指令为swapi</span>
+		<span class="token property">&quot;swapi&quot;</span><span class="token operator">:</span> <span class="token string">&quot;./bin/swapi.cjs&quot;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;files&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;bin&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;index.cjs&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">//需要npm上传的文件,文件夹</span>
+	<span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token comment">//yarn run时候的执行命令</span>
+		<span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;rollup -c&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;lint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prettier './src/**/*.{ts,js,d.ts}' -w&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;lint-dist&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prettier './dist/**/*.{ts,d.ts}' -w&quot;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;dependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token property">&quot;prettier&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^2.6.2&quot;</span><span class="token punctuation">,</span> <span class="token comment">//用于下版本,使用execa来调用prettier格式化方案</span>
+		<span class="token property">&quot;prettier-standard&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^16.4.1&quot;</span> <span class="token comment">//prettier基本样式配置</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;devDependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token property">&quot;@rollup/plugin-commonjs&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^21.1.0&quot;</span><span class="token punctuation">,</span> <span class="token comment">//用于兼容cjs格式的组件引入</span>
+		<span class="token property">&quot;@rollup/plugin-json&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^4.1.0&quot;</span><span class="token punctuation">,</span> <span class="token comment">//用于导入json</span>
+		<span class="token property">&quot;@rollup/plugin-node-resolve&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^13.2.1&quot;</span><span class="token punctuation">,</span> <span class="token comment">//帮助rollup在打包时查找外部模块引入</span>
+		<span class="token property">&quot;@types/node&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^17.0.25&quot;</span><span class="token punctuation">,</span> <span class="token comment">//node的type声明</span>
+		<span class="token property">&quot;esbuild&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^0.14.36&quot;</span><span class="token punctuation">,</span> <span class="token comment">//用于下版本,esbuild编译工具</span>
+		<span class="token property">&quot;execa&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^4.1.0&quot;</span><span class="token punctuation">,</span> <span class="token comment">//用于下版本,执行外部指令格式化</span>
+		<span class="token property">&quot;fs-extra&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^10.1.0&quot;</span><span class="token punctuation">,</span> <span class="token comment">//用于下版本,替代fs操作的增强库</span>
+		<span class="token property">&quot;minimist&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^1.2.6&quot;</span><span class="token punctuation">,</span> <span class="token comment">//参数支持</span>
+		<span class="token property">&quot;rollup&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^2.70.2&quot;</span><span class="token punctuation">,</span> <span class="token comment">//打包工具</span>
+		<span class="token property">&quot;rollup-plugin-esbuild&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^4.9.1&quot;</span><span class="token punctuation">,</span> <span class="token comment">//用于下版本,用于支持esbuild</span>
+		<span class="token property">&quot;rollup-plugin-filesize&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^9.1.2&quot;</span><span class="token punctuation">,</span> <span class="token comment">//用于打包完毕后显示文件大小</span>
+		<span class="token property">&quot;rollup-plugin-terser&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^7.0.2&quot;</span><span class="token punctuation">,</span> <span class="token comment">//目前使用的打包工具</span>
+		<span class="token property">&quot;typescript&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^4.6.3&quot;</span> <span class="token comment">//ts支持</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;author&quot;</span><span class="token operator">:</span> <span class="token string">&quot;407852978@qq.com&quot;</span><span class="token punctuation">,</span> <span class="token comment">//邮箱</span>
+	<span class="token property">&quot;license&quot;</span><span class="token operator">:</span> <span class="token string">&quot;UNLICENSED&quot;</span><span class="token punctuation">,</span> <span class="token comment">//私人</span>
+	<span class="token property">&quot;packageManager&quot;</span><span class="token operator">:</span> <span class="token string">&quot;yarn@3.2.0&quot;</span><span class="token punctuation">,</span> <span class="token comment">//yarn工具</span>
+	<span class="token property">&quot;prepublishOnly&quot;</span><span class="token operator">:</span> <span class="token string">&quot;yarn run build&quot;</span> <span class="token comment">//publish前需要执行的步骤</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="rollup"><a href="#rollup" class="header-anchor">#</a> rollup</h2> <p><code>rollup -c</code> 默认会调用当前目录下的 <strong>rollup.config.js</strong>文件</p> <p>rollup.config.js 如下</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> filesize <span class="token keyword">from</span> <span class="token string">&quot;rollup-plugin-filesize&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> terser <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;rollup-plugin-terser&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> nodeResolve <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;@rollup/plugin-node-resolve&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> commonjs <span class="token keyword">from</span> <span class="token string">&quot;@rollup/plugin-commonjs&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> json <span class="token keyword">from</span> <span class="token string">&quot;@rollup/plugin-json&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+	<span class="token literal-property property">input</span><span class="token operator">:</span> <span class="token string">&quot;./src/index.js&quot;</span><span class="token punctuation">,</span> <span class="token comment">//入口我呢见</span>
+	<span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token literal-property property">file</span><span class="token operator">:</span> <span class="token string">&quot;index.cjs&quot;</span><span class="token punctuation">,</span> <span class="token comment">//输出文件</span>
+			<span class="token literal-property property">format</span><span class="token operator">:</span> <span class="token string">&quot;cjs&quot;</span><span class="token punctuation">,</span> <span class="token comment">//输出格式,为了兼容性方便调用,我们输出cjs格式</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">]</span><span class="token punctuation">,</span>
+	<span class="token literal-property property">external</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;eslint&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">//打包时排除的组件</span>
+	<span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token function">nodeResolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">//该插件用于载入依赖</span>
+		<span class="token function">commonjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">//载入cjs依赖</span>
+		<span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">//载入json</span>
+		<span class="token function">terser</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+			<span class="token comment">//打包</span>
+			<span class="token literal-property property">compress</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment">//压缩</span>
+			<span class="token literal-property property">mangle</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+				<span class="token literal-property property">toplevel</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//在顶层作用域中压缩清理变量</span>
+				<span class="token literal-property property">eval</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//允许使用eval</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token function">filesize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">//显示下生成的输出</span>
+	<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="bin"><a href="#bin" class="header-anchor">#</a> bin</h2> <p>如果需要全局安装(global),使用指令执行(swapi),则我们需要编写个 bin 文件,node 在安装时会帮我们自动加载到全局</p> <p>为了兼容性,使用 cjs 编写</p> <p>bin/swapi.cjs 文件如下</p> <div class="language-cjs extra-class"><pre class="language-text"><code>#!/usr/bin/env node
+&quot;use strict&quot;;
+(async function main() {
+	process.exitCode = await require(&quot;../index.cjs&quot;);
+})().catch((err) =&gt; {
+	console.error(err);
+});
+</code></pre></div><h2 id="关于发布"><a href="#关于发布" class="header-anchor">#</a> 关于发布</h2> <p>发布的流程十分简单,使用 publish 发布即可,请确认</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>npm 一般会需要二次验证,建议使用 authenticator 等软件绑定下</p></div> <p>:::waring
+发布需要检查下使用源,请使用 nrm/yrm 等工具检查自己的使用源,确保为 npm[https://registry.npmjs.org/]才能正常的发布到 npm 上
+:::</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">4/21/2022, 11:02:56 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/guideNotes/assets/js/app.f4c14fc7.js" defer></script><script src="/guideNotes/assets/js/2.66c349bf.js" defer></script><script src="/guideNotes/assets/js/18.9fb2220c.js" defer></script>
+  </body>
+</html>

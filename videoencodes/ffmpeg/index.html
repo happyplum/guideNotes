@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>关于 ffmpeg 的视频编码测试 | PlumNotes</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/guideNotes/icon.png">
+    <meta name="description" content="李振宇的个人笔记">
+    
+    <link rel="preload" href="/guideNotes/assets/css/0.styles.9de59f97.css" as="style"><link rel="preload" href="/guideNotes/assets/js/app.f4c14fc7.js" as="script"><link rel="preload" href="/guideNotes/assets/js/2.66c349bf.js" as="script"><link rel="preload" href="/guideNotes/assets/js/21.95aeba4a.js" as="script"><link rel="prefetch" href="/guideNotes/assets/js/10.623a551f.js"><link rel="prefetch" href="/guideNotes/assets/js/11.6882f2e0.js"><link rel="prefetch" href="/guideNotes/assets/js/12.7f6aa898.js"><link rel="prefetch" href="/guideNotes/assets/js/13.15f599c5.js"><link rel="prefetch" href="/guideNotes/assets/js/14.3c8c24c3.js"><link rel="prefetch" href="/guideNotes/assets/js/15.560bc493.js"><link rel="prefetch" href="/guideNotes/assets/js/16.9b44bca0.js"><link rel="prefetch" href="/guideNotes/assets/js/17.280ca8f0.js"><link rel="prefetch" href="/guideNotes/assets/js/18.9fb2220c.js"><link rel="prefetch" href="/guideNotes/assets/js/19.a304f2c5.js"><link rel="prefetch" href="/guideNotes/assets/js/20.bb81e47f.js"><link rel="prefetch" href="/guideNotes/assets/js/22.387bd4ca.js"><link rel="prefetch" href="/guideNotes/assets/js/23.f2fab386.js"><link rel="prefetch" href="/guideNotes/assets/js/24.55f38def.js"><link rel="prefetch" href="/guideNotes/assets/js/25.4e61bdcd.js"><link rel="prefetch" href="/guideNotes/assets/js/26.6fa421ea.js"><link rel="prefetch" href="/guideNotes/assets/js/27.7b033025.js"><link rel="prefetch" href="/guideNotes/assets/js/28.fb5d0f61.js"><link rel="prefetch" href="/guideNotes/assets/js/3.7f9388a7.js"><link rel="prefetch" href="/guideNotes/assets/js/4.55e7b4da.js"><link rel="prefetch" href="/guideNotes/assets/js/5.64a00a3a.js"><link rel="prefetch" href="/guideNotes/assets/js/6.a3d5d638.js"><link rel="prefetch" href="/guideNotes/assets/js/7.71896494.js"><link rel="prefetch" href="/guideNotes/assets/js/8.2bc51a6d.js"><link rel="prefetch" href="/guideNotes/assets/js/9.01c5722c.js">
+    <link rel="stylesheet" href="/guideNotes/assets/css/0.styles.9de59f97.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/guideNotes/" class="home-link router-link-active"><!----> <span class="site-name">PlumNotes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端开发笔记" class="dropdown-title"><span class="title">前端开发笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端开发笔记" class="mobile-dropdown-title"><span class="title">前端开发笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/javascript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><h4>
+          TypeScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/typescript/typescript/" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/typescript/tsconfig/" class="nav-link">
+  ts.config
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端开发笔记2" class="dropdown-title"><span class="title">前端开发笔记2</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端开发笔记2" class="mobile-dropdown-title"><span class="title">前端开发笔记2</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/jsdoc/" class="nav-link">
+  JSDoc
+</a></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/vue/vue2/" class="nav-link">
+  Vue2
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/vue/vue3/" class="nav-link">
+  Vue3
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/react/reactnative/" class="nav-link">
+  ReactNative
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="脚手架" class="dropdown-title"><span class="title">脚手架</span> <span class="arrow down"></span></button> <button type="button" aria-label="脚手架" class="mobile-dropdown-title"><span class="title">脚手架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/vuecli/vuecli/" class="nav-link">
+  VueCLI
+</a></li><li class="dropdown-item"><h4>
+          Vite
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/vuecli/vite/cli2vite/" class="nav-link">
+  cli迁移
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/vuecli/vite/config/" class="nav-link">
+  vit.config笔记
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/tools/cli/" class="nav-link">
+  自定义工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          打包相关
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/builde/rollup/" class="nav-link">
+  Rollup
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/builde/webpack/" class="nav-link">
+  Webpack
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/guideNotes/notes/git/" class="nav-link">
+  git
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="个人" class="dropdown-title"><span class="title">个人</span> <span class="arrow down"></span></button> <button type="button" aria-label="个人" class="mobile-dropdown-title"><span class="title">个人</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/nastools/" class="nav-link">
+  nas/sPC
+</a></li><li class="dropdown-item"><!----> <a href="/guideNotes/docker/" class="nav-link">
+  docker
+</a></li><li class="dropdown-item"><h4>
+          gitlab
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/gitlab/gitlab/" class="nav-link">
+  gitlab
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/gitlab/gitlabrunner/" class="nav-link">
+  gitlabRunner
+</a></li></ul></li><li class="dropdown-item"><h4>
+          视频编码
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/videoencodes/ffmpeg/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  ffmpeg
+</a></li></ul></li></ul></div></div> <a href="https://github.com/happyplum/guideNotes" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端开发笔记" class="dropdown-title"><span class="title">前端开发笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端开发笔记" class="mobile-dropdown-title"><span class="title">前端开发笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/javascript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><h4>
+          TypeScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/typescript/typescript/" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/typescript/tsconfig/" class="nav-link">
+  ts.config
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端开发笔记2" class="dropdown-title"><span class="title">前端开发笔记2</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端开发笔记2" class="mobile-dropdown-title"><span class="title">前端开发笔记2</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/jsdoc/" class="nav-link">
+  JSDoc
+</a></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/vue/vue2/" class="nav-link">
+  Vue2
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/vue/vue3/" class="nav-link">
+  Vue3
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/react/reactnative/" class="nav-link">
+  ReactNative
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="脚手架" class="dropdown-title"><span class="title">脚手架</span> <span class="arrow down"></span></button> <button type="button" aria-label="脚手架" class="mobile-dropdown-title"><span class="title">脚手架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/vuecli/vuecli/" class="nav-link">
+  VueCLI
+</a></li><li class="dropdown-item"><h4>
+          Vite
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/vuecli/vite/cli2vite/" class="nav-link">
+  cli迁移
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/vuecli/vite/config/" class="nav-link">
+  vit.config笔记
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/tools/cli/" class="nav-link">
+  自定义工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          打包相关
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/builde/rollup/" class="nav-link">
+  Rollup
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/builde/webpack/" class="nav-link">
+  Webpack
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/guideNotes/notes/git/" class="nav-link">
+  git
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="个人" class="dropdown-title"><span class="title">个人</span> <span class="arrow down"></span></button> <button type="button" aria-label="个人" class="mobile-dropdown-title"><span class="title">个人</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/nastools/" class="nav-link">
+  nas/sPC
+</a></li><li class="dropdown-item"><!----> <a href="/guideNotes/docker/" class="nav-link">
+  docker
+</a></li><li class="dropdown-item"><h4>
+          gitlab
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/gitlab/gitlab/" class="nav-link">
+  gitlab
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/gitlab/gitlabrunner/" class="nav-link">
+  gitlabRunner
+</a></li></ul></li><li class="dropdown-item"><h4>
+          视频编码
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/videoencodes/ffmpeg/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  ffmpeg
+</a></li></ul></li></ul></div></div> <a href="https://github.com/happyplum/guideNotes" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="关于-ffmpeg-的视频编码测试"><a href="#关于-ffmpeg-的视频编码测试" class="header-anchor">#</a> 关于 ffmpeg 的视频编码测试</h1> <h2 id="源文件"><a href="#源文件" class="header-anchor">#</a> 源文件</h2> <p>1.mp4 5.92 GB H264(AC1) NV12</p> <h2 id="cpu"><a href="#cpu" class="header-anchor">#</a> CPU</h2> <div class="language- extra-class"><pre class="language-text"><code>ffmpeg -hwaccel cuda -i d:\test\1.mp4 -y -map 0 -pix_fmt yuv420p10le -c copy -c:v:0 libx265 -x265-params &quot;no-sao=1:me=2:merange=24&quot; d:\test\2.h265.mp4
+</code></pre></div><p>1.10 GB VMAF score: 94.864233</p> <div class="language- extra-class"><pre class="language-text"><code>ffmpeg -hwaccel cuda -i d:\test\1.mp4 -y -map 0 -pix_fmt yuv420p10le -c copy -c:v:0 libx265 -x265-params &quot;no-sao=1:me=2:merange=24&quot; -tune grain -crf 23 -preset slow d:\test\2.h265.slow.mp4
+</code></pre></div><p>5.22 GB VMAF score: 97.553611</p> <div class="language- extra-class"><pre class="language-text"><code>ffmpeg -hwaccel cuda -i d:\test\1.mp4 -y -map 0 -pix_fmt yuv420p10le -c copy -c:v:0 libx265 -x265-params &quot;no-sao=1:me=2:merange=24&quot; -tune grain -crf 23 d:\test\2.h265.noSlow.mp4
+</code></pre></div><p>3.73 GB VMAF score: 96.735852</p> <div class="language- extra-class"><pre class="language-text"><code>ffmpeg -hwaccel cuda -i d:\test\1.mp4 -y 3.noparams.mp4
+</code></pre></div><p>3.74 GB VMAF score: 93.878954</p> <div class="language- extra-class"><pre><code>2022年4月1日 尝试新增了crf21和fast crf21,19的配置,没想到fast crf21 又小质量又高,但是为了通用考虑还是修改为 普通 crf21 方案
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>ffmpeg -hwaccel cuda -i d:\test\1.mp4 -y -map 0 -pix_fmt yuv420p10le -c copy -c:v:0 libx265 -x265-params &quot;no-sao=1:me=2:merange=24&quot; -tune grain -crf 21 d:\test\2.h265.noSlow.crf21.mp4
+</code></pre></div><p>5.03 GB VMAF score: 97.817357</p> <div class="language- extra-class"><pre class="language-text"><code>ffmpeg -hwaccel cuda -i d:\test\1.mp4 -y -map 0 -pix_fmt yuv420p10le -c copy -c:v:0 libx265 -x265-params &quot;no-sao=1:me=2:merange=24&quot; -tune grain -crf 21 -preset fast d:\test\2.h265.fast.crf21.mp4
+</code></pre></div><p>4.80 GB VMAF score: 97.103569</p> <div class="language- extra-class"><pre class="language-text"><code>ffmpeg -hwaccel cuda -i d:\test\1.mp4 -y -map 0 -pix_fmt yuv420p10le -c copy -c:v:0 libx265 -x265-params &quot;no-sao=1:me=2:merange=24&quot; -tune grain -crf 19 -preset fast d:\test\2.h265.fast.crf19.mp4
+</code></pre></div><p>6.43 GB VMAF score: 97.576508</p> <h2 id="nvida-rtx30"><a href="#nvida-rtx30" class="header-anchor">#</a> NVIDA(RTX30)</h2> <div class="language- extra-class"><pre class="language-text"><code>ffmpeg -hwaccel cuda -i d:\test\1.mp4 -y -map 0 -c copy -c:v:0 hevc_nvenc -profile:v main10 -pix_fmt p010le -preset slow -bf 4 D:\test\1.h265.mp4
+</code></pre></div><p>2.40 GB VMAF score: 91.265293</p> <div class="language- extra-class"><pre class="language-text"><code>ffmpeg -y -hide_banner -vsync 0 -hwaccel cuda -hwaccel_output_format cuda -hwaccel_device 0 -c:v:0 h264_cuvid -i &quot;1.mp4&quot; -vf &quot;hwdownload,format=nv12&quot; -c copy -c:v:0 hevc_nvenc -profile:v main10 -pix_fmt p010le -rc:v:0 vbr -tune hq -preset p5 -multipass 1 -bf 4 -b_ref_mode 1 -nonref_p 1 -rc-lookahead 75 -spatial-aq 1 -aq-strength 8 -temporal-aq 1 -cq 21 -qmin 1 -qmax 99 -b:v:0 10M -maxrate:v:0 20M -gpu 0 &quot;1.mkv&quot;
+</code></pre></div><p>9.76 GB VMAF score: 97.735412</p> <h2 id="参考"><a href="#参考" class="header-anchor">#</a> 参考</h2> <p><a href="https://superuser.com/questions/1614571/understanding-pixel-format-and-profile-when-encoding-10-bit-video-in-ffmpeg-with" target="_blank" rel="noopener noreferrer">参考<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>Here is a command I use to convert videos from AVC to HEVC 10-bit using Pascal encoder (GTX 10x0 cards):</p> <div class="language- extra-class"><pre class="language-text"><code>ffmpeg -y -hide_banner -hwaccel nvdec -hwaccel_device 0 -vsync 0 -i &quot;input.mp4&quot; -c copy -c:v:0 hevc_nvenc -profile:v main10 -pix_fmt p010le -rc:v:0 vbr_hq -rc-lookahead 32 -cq 21 -qmin 1 -qmax 51 -b:v:0 10M -maxrate:v:0 20M -gpu 0 &quot;output.mkv&quot;
+</code></pre></div><p>Similar command that can be used on newer Turing (GTX 20x0) and Ampere (RTX 30x0) encoder:</p> <div class="language- extra-class"><pre class="language-text"><code>ffmpeg -y -hide_banner -vsync 0 -hwaccel cuda -hwaccel_output_format cuda  -hwaccel_device 0 -c:v:0 h264_cuvid -i &quot;input.mp4&quot; -vf &quot;hwdownload,format=nv12&quot; -c copy -c:v:0 hevc_nvenc -profile:v main10 -pix_fmt p010le -rc:v:0 vbr -tune hq -preset p5 -multipass 1 -bf 4 -b_ref_mode 1 -nonref_p 1 -rc-lookahead 75 -spatial-aq 1 -aq-strength 8 -temporal-aq 1 -cq 21 -qmin 1 -qmax 99 -b:v:0 10M -maxrate:v:0 20M -gpu 0 &quot;output.mkv&quot;
+</code></pre></div><p>Params explanation:</p> <ul><li><strong>-pix_fmt p010le</strong> converts 8bit input into 10bit; note that conversion is done by CPU so it makes the encoding slower but produces better quality video and in CRF also lower bitrate (smaller file). For CUDA decoder must be used with <strong>-vf &quot;hwdownload,format=nv12&quot;</strong> (or <strong>-vf &quot;hwdownload,format=p010le&quot;</strong> for 10 bit input video) to copy decoded frames from CUDA into CPU for conversion (NVDEC decoder sends frames into CPU automatically.) Specifying <strong>-profile main10</strong> is required to allow 10bit encoding but does not accually affect how the encoder encodes the video - encoder itself does not change the bit depth of the input!</li> <li><strong>-rc:v:0 vbr_hq -cq 21 -qmin 1 -qmax 99</strong> is needed to fully enable CRF mode. Increase qmin to lower bitrate peaks, lower qmax to prevent low-quality frames (recommended for encoding without AQ). On Turing and Ampere use -rc:v:0 vbr -tune hq instead of vbr_hqfor same result. BTW for HEVC is recommended quality -cq 28 (or -cq 30 with AQ enabled).</li> <li><strong>-b::v:0 10M -maxrate:v:0 20M</strong> specifies recommended and maximum bitrate supported by the target device. For main tier @L5 you can use max. 25M, for @L6 maximum is 60Mbps (for 30fps video). This is also needed for the hardware encoder to know how to calculate the QP value in CRF mode. I use 10M/20M for videos stored on NAS and played on TV over LAN.</li> <li><strong>present=slow</strong> enables 2-pass processing and other advanced optimizations; since hardware encoder is faster than software encoders, you can go with slow preset and still get a lot faster processing than from CPU on faster preset. On Ampere you must use <strong>-preset p5 -multipass 2</strong> which equals to the slow preset (you can go up to <strong>p7</strong> which equals to very slow but has almost no additional effect on file size in most cases; you can use <strong>-multipass 1</strong> for 4-times faster first pass).</li> <li><strong>hwaccell</strong> enables hardware decoder and specify which device will decode the video (if you have SLI). Based on your CPU speed you can test which is best for you. NVDEC can decode any MPEG video but is slower; for faster CUDA you must specify if source is AVC, HEVC or AV1. For DivX, Xvid and non-MPEG input remove it completely to switch to software decoder using CPU.</li> <li><strong>-bf 4 -b_ref_mode 1 -nonref_p 1</strong> enables improved B-frames processing on Turing and Ampere (note that it's not supported by h264_nvenc).</li> <li>Alternatively you can use <strong>-bf 0 -weighted_pred 1</strong> to use Weighted prediction instead of B-frames if your source has uneven lighting (flickering lights or lots of fade-ins/-outs) to get better quality and smaller file (however disabling B-frames increases file size for other sources with stable lighting).</li> <li><strong>-rc-lookahead 75 -spatial-aq 1 -aq-strength 8 -temporal-aq 1</strong> enables Adaptive quantifier supported on Turing and Ampere. This improves video quality with same or lower bitrate in CRF mode. Change the rc-lookahead to either get faster speed or better quality. Increase aq-strength if you see artifacts in very dark colors.</li> <li>using <strong>-gpu 0</strong> you specify which device encode the video if you have SLI or on-board (Intel/AMD) card.</li> <li>in addition with CUDA decoder you can add <strong>-resize WIDTHxHEIGHT</strong> and/or <strong>-crop TOPxBOTTOMxLEFTxRIGHT</strong> (before the -i parameter) to change the input using the hardware decoder. This is faster than using <strong>-vf scale</strong> and <strong>-vf crop</strong> which is done on CPU.</li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">4/1/2022, 7:26:35 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/guideNotes/assets/js/app.f4c14fc7.js" defer></script><script src="/guideNotes/assets/js/2.66c349bf.js" defer></script><script src="/guideNotes/assets/js/21.95aeba4a.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>关于 Vue-Cli 迁移到 Vite | PlumNotes</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/guideNotes/icon.png">
+    <meta name="description" content="李振宇的个人笔记">
+    
+    <link rel="preload" href="/guideNotes/assets/css/0.styles.9de59f97.css" as="style"><link rel="preload" href="/guideNotes/assets/js/app.f4c14fc7.js" as="script"><link rel="preload" href="/guideNotes/assets/js/2.66c349bf.js" as="script"><link rel="preload" href="/guideNotes/assets/js/27.7b033025.js" as="script"><link rel="prefetch" href="/guideNotes/assets/js/10.623a551f.js"><link rel="prefetch" href="/guideNotes/assets/js/11.6882f2e0.js"><link rel="prefetch" href="/guideNotes/assets/js/12.7f6aa898.js"><link rel="prefetch" href="/guideNotes/assets/js/13.15f599c5.js"><link rel="prefetch" href="/guideNotes/assets/js/14.3c8c24c3.js"><link rel="prefetch" href="/guideNotes/assets/js/15.560bc493.js"><link rel="prefetch" href="/guideNotes/assets/js/16.9b44bca0.js"><link rel="prefetch" href="/guideNotes/assets/js/17.280ca8f0.js"><link rel="prefetch" href="/guideNotes/assets/js/18.9fb2220c.js"><link rel="prefetch" href="/guideNotes/assets/js/19.a304f2c5.js"><link rel="prefetch" href="/guideNotes/assets/js/20.bb81e47f.js"><link rel="prefetch" href="/guideNotes/assets/js/21.95aeba4a.js"><link rel="prefetch" href="/guideNotes/assets/js/22.387bd4ca.js"><link rel="prefetch" href="/guideNotes/assets/js/23.f2fab386.js"><link rel="prefetch" href="/guideNotes/assets/js/24.55f38def.js"><link rel="prefetch" href="/guideNotes/assets/js/25.4e61bdcd.js"><link rel="prefetch" href="/guideNotes/assets/js/26.6fa421ea.js"><link rel="prefetch" href="/guideNotes/assets/js/28.fb5d0f61.js"><link rel="prefetch" href="/guideNotes/assets/js/3.7f9388a7.js"><link rel="prefetch" href="/guideNotes/assets/js/4.55e7b4da.js"><link rel="prefetch" href="/guideNotes/assets/js/5.64a00a3a.js"><link rel="prefetch" href="/guideNotes/assets/js/6.a3d5d638.js"><link rel="prefetch" href="/guideNotes/assets/js/7.71896494.js"><link rel="prefetch" href="/guideNotes/assets/js/8.2bc51a6d.js"><link rel="prefetch" href="/guideNotes/assets/js/9.01c5722c.js">
+    <link rel="stylesheet" href="/guideNotes/assets/css/0.styles.9de59f97.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/guideNotes/" class="home-link router-link-active"><!----> <span class="site-name">PlumNotes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端开发笔记" class="dropdown-title"><span class="title">前端开发笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端开发笔记" class="mobile-dropdown-title"><span class="title">前端开发笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/javascript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><h4>
+          TypeScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/typescript/typescript/" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/typescript/tsconfig/" class="nav-link">
+  ts.config
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端开发笔记2" class="dropdown-title"><span class="title">前端开发笔记2</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端开发笔记2" class="mobile-dropdown-title"><span class="title">前端开发笔记2</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/jsdoc/" class="nav-link">
+  JSDoc
+</a></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/vue/vue2/" class="nav-link">
+  Vue2
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/vue/vue3/" class="nav-link">
+  Vue3
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/react/reactnative/" class="nav-link">
+  ReactNative
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="脚手架" class="dropdown-title"><span class="title">脚手架</span> <span class="arrow down"></span></button> <button type="button" aria-label="脚手架" class="mobile-dropdown-title"><span class="title">脚手架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/vuecli/vuecli/" class="nav-link">
+  VueCLI
+</a></li><li class="dropdown-item"><h4>
+          Vite
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/vuecli/vite/cli2vite/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  cli迁移
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/vuecli/vite/config/" class="nav-link">
+  vit.config笔记
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/tools/cli/" class="nav-link">
+  自定义工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          打包相关
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/builde/rollup/" class="nav-link">
+  Rollup
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/builde/webpack/" class="nav-link">
+  Webpack
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/guideNotes/notes/git/" class="nav-link">
+  git
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="个人" class="dropdown-title"><span class="title">个人</span> <span class="arrow down"></span></button> <button type="button" aria-label="个人" class="mobile-dropdown-title"><span class="title">个人</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/nastools/" class="nav-link">
+  nas/sPC
+</a></li><li class="dropdown-item"><!----> <a href="/guideNotes/docker/" class="nav-link">
+  docker
+</a></li><li class="dropdown-item"><h4>
+          gitlab
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/gitlab/gitlab/" class="nav-link">
+  gitlab
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/gitlab/gitlabrunner/" class="nav-link">
+  gitlabRunner
+</a></li></ul></li><li class="dropdown-item"><h4>
+          视频编码
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/videoencodes/ffmpeg/" class="nav-link">
+  ffmpeg
+</a></li></ul></li></ul></div></div> <a href="https://github.com/happyplum/guideNotes" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端开发笔记" class="dropdown-title"><span class="title">前端开发笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端开发笔记" class="mobile-dropdown-title"><span class="title">前端开发笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/javascript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><h4>
+          TypeScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/typescript/typescript/" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/typescript/tsconfig/" class="nav-link">
+  ts.config
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端开发笔记2" class="dropdown-title"><span class="title">前端开发笔记2</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端开发笔记2" class="mobile-dropdown-title"><span class="title">前端开发笔记2</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/jsdoc/" class="nav-link">
+  JSDoc
+</a></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/vue/vue2/" class="nav-link">
+  Vue2
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/vue/vue3/" class="nav-link">
+  Vue3
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/react/reactnative/" class="nav-link">
+  ReactNative
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="脚手架" class="dropdown-title"><span class="title">脚手架</span> <span class="arrow down"></span></button> <button type="button" aria-label="脚手架" class="mobile-dropdown-title"><span class="title">脚手架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/vuecli/vuecli/" class="nav-link">
+  VueCLI
+</a></li><li class="dropdown-item"><h4>
+          Vite
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/vuecli/vite/cli2vite/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  cli迁移
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/vuecli/vite/config/" class="nav-link">
+  vit.config笔记
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/tools/cli/" class="nav-link">
+  自定义工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          打包相关
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/builde/rollup/" class="nav-link">
+  Rollup
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/builde/webpack/" class="nav-link">
+  Webpack
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/guideNotes/notes/git/" class="nav-link">
+  git
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="个人" class="dropdown-title"><span class="title">个人</span> <span class="arrow down"></span></button> <button type="button" aria-label="个人" class="mobile-dropdown-title"><span class="title">个人</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guideNotes/nastools/" class="nav-link">
+  nas/sPC
+</a></li><li class="dropdown-item"><!----> <a href="/guideNotes/docker/" class="nav-link">
+  docker
+</a></li><li class="dropdown-item"><h4>
+          gitlab
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/gitlab/gitlab/" class="nav-link">
+  gitlab
+</a></li><li class="dropdown-subitem"><a href="/guideNotes/gitlab/gitlabrunner/" class="nav-link">
+  gitlabRunner
+</a></li></ul></li><li class="dropdown-item"><h4>
+          视频编码
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guideNotes/videoencodes/ffmpeg/" class="nav-link">
+  ffmpeg
+</a></li></ul></li></ul></div></div> <a href="https://github.com/happyplum/guideNotes" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>关于 Vue-Cli 迁移到 Vite</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guideNotes/vuecli/vite/cli2vite/#step-1-修改基本配置文件" class="sidebar-link">STEP 1 修改基本配置文件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guideNotes/vuecli/vite/cli2vite/#package-json" class="sidebar-link">package.json</a></li><li class="sidebar-sub-header"><a href="/guideNotes/vuecli/vite/cli2vite/#tsconfig-json" class="sidebar-link">tsconfig.json</a></li><li class="sidebar-sub-header"><a href="/guideNotes/vuecli/vite/cli2vite/#vite-config-ts" class="sidebar-link">vite.config.ts</a></li><li class="sidebar-sub-header"><a href="/guideNotes/vuecli/vite/cli2vite/#d-ts" class="sidebar-link">d.ts</a></li><li class="sidebar-sub-header"><a href="/guideNotes/vuecli/vite/cli2vite/#针对模块按需加载" class="sidebar-link">针对模块按需加载</a></li></ul></li><li><a href="/guideNotes/vuecli/vite/cli2vite/#step-2-修改-vue-变量" class="sidebar-link">STEP 2 修改 VUE 变量</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/guideNotes/vuecli/vite/cli2vite/#step-3-process-替换-import-meta" class="sidebar-link">STEP 3 process 替换 import.meta</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/guideNotes/vuecli/vite/cli2vite/#step-4-require-替换-import" class="sidebar-link">STEP 4 require 替换 import</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/guideNotes/vuecli/vite/cli2vite/#step-5-关于-js-的-import-补充" class="sidebar-link">STEP 5 关于 JS 的 import 补充</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/guideNotes/vuecli/vite/cli2vite/#step-6-关于-css-的-import-补充" class="sidebar-link">STEP 6 关于 CSS 的 import 补充</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="关于-vue-cli-迁移到-vite"><a href="#关于-vue-cli-迁移到-vite" class="header-anchor">#</a> 关于 Vue-Cli 迁移到 Vite</h1> <p>本文用于笔记把项目从 vue-cli 迁移到 vite 环境所需的大致步骤和具体区别
+PS:有部分步骤为<em>历史脚手架</em>修改,可忽略</p> <h2 id="step-1-修改基本配置文件"><a href="#step-1-修改基本配置文件" class="header-anchor">#</a> STEP 1 修改基本配置文件</h2> <h3 id="package-json"><a href="#package-json" class="header-anchor">#</a> package.json</h3> <ul><li><p>scripts
+将 <strong>dev</strong> 或 <strong>serve</strong> 替换为 <code>vite --open</code>
+将 <strong>build</strong> 替换为 <code>vite build</code></p></li> <li><p><strong>dependencies</strong>
+删除原有的 <code>@vue/cli</code> 相关组件,新增 <code>yarn add vite vue-tsc @vitejs/plugin-vue vite-plugin-style-import consola</code></p> <p><strong>vite</strong> 为 vite 运行用环境<br> <strong>@vitejs/plugin-vue</strong> 为 vite 解析 vue 组件用<br> <strong>vue-tsc</strong> 为解析 typeScript 用<br> <strong>vite-plugin-style-import</strong> 为模块加载,自动加载样式用组件,consola 为该组件必要<br></p></li></ul> <h3 id="tsconfig-json"><a href="#tsconfig-json" class="header-anchor">#</a> tsconfig.json</h3> <ul><li><strong>compilerOptions</strong> 新增<code>&quot;isolatedModules&quot;: true</code></li> <li><strong>types</strong> 新增<code>&quot;vite/client&quot;</code></li></ul> <h3 id="vite-config-ts"><a href="#vite-config-ts" class="header-anchor">#</a> vite.config.ts</h3> <p>基础模板如下</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	base<span class="token operator">:</span> publicPath<span class="token punctuation">,</span> <span class="token comment">// 打包后的路径设置 —— 可自定义路径</span>
+	server<span class="token operator">:</span> <span class="token punctuation">{</span>
+		hmr<span class="token operator">:</span> <span class="token punctuation">{</span> overlay<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment">// 禁用或配置 HMR 连接 设置 server.hmr.overlay 为 false 可以禁用服务器错误遮罩层</span>
+		port<span class="token operator">:</span> <span class="token number">8080</span><span class="token punctuation">,</span> <span class="token comment">//端口号，默认3000</span>
+		open<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">//类型： boolean | string 启动时自动打开浏览器</span>
+		https<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">//是否开启https</span>
+		cors<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 类型： boolean | CorsOptions 为开发服务器配置 CORS。默认启用并允许任何源</span>
+		host<span class="token operator">:</span> <span class="token string">&quot;0.0.0.0&quot;</span><span class="token punctuation">,</span> <span class="token comment">//指定服务器应该监听哪个 IP 地址</span>
+		proxy<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	resolve<span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token comment">// 定义别名</span>
+		alias<span class="token operator">:</span> <span class="token punctuation">{</span>
+			<span class="token string-property property">&quot;@&quot;</span><span class="token operator">:</span> <span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&quot;src/&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	build<span class="token operator">:</span> <span class="token punctuation">{</span>
+		rollupOptions<span class="token operator">:</span> <span class="token punctuation">{</span>
+			<span class="token comment">// 确保外部化处理那些你不想打包进库的依赖</span>
+			external<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+			<span class="token comment">// https://rollupjs.org/guide/en/#big-list-of-options</span>
+			<span class="token comment">//打包时文件分模块输出</span>
+			output<span class="token operator">:</span> <span class="token punctuation">{</span>
+				chunkFileNames<span class="token operator">:</span> <span class="token string">&quot;static/js/[name]-[hash].js&quot;</span><span class="token punctuation">,</span>
+				entryFileNames<span class="token operator">:</span> <span class="token string">&quot;static/js/[name]-[hash].js&quot;</span><span class="token punctuation">,</span>
+				assetFileNames<span class="token operator">:</span> <span class="token string">&quot;static/[ext]/[name]-[hash].[ext]&quot;</span><span class="token punctuation">,</span>
+				<span class="token comment">// globals: {</span>
+				<span class="token comment">// 	vue: 'Vue',</span>
+				<span class="token comment">// },</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		watch<span class="token operator">:</span> <span class="token punctuation">{</span>
+			<span class="token comment">// https://rollupjs.org/guide/en/#watch-options</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token comment">// Turning off brotliSize display can slightly reduce packaging time</span>
+		brotliSize<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+		chunkSizeWarningLimit<span class="token operator">:</span> <span class="token number">2000</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token comment">//vue插件默认</span>
+		<span class="token function">vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token punctuation">]</span><span class="token punctuation">,</span>
+	css<span class="token operator">:</span> <span class="token punctuation">{</span>
+		preprocessorOptions<span class="token operator">:</span> <span class="token punctuation">{</span>
+			scss<span class="token operator">:</span> <span class="token punctuation">{</span>
+				<span class="token comment">//定义公共的scss变量文件,实际是在每个scss头部添加引入</span>
+				additionalData<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">@import &quot;./src/css/vars.scss&quot;;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ol><li><code>const { defineConfig } = require('@vue/cli-service')</code>替换为<code>import { defineConfig } from 'vite'</code></li> <li>添加<code>import vue from '@vitejs/plugin-vue'</code></li> <li>修改<strong>config</strong>公共配置<br>
+复制<code>publicPath</code>到<code>base</code> //用于修改自定义路径<br>
+复制<code>devServer/proxy</code>到<code>server/proxy</code>,其中 <strong>pathRewrite</strong> 对像,需要修改为 <strong>rewrite</strong> 方法:<code>rewrite: (path) =&gt; path.replace(/^\/test/, '/test')</code>将访问路径进行正则替换<br></li> <li>替换别名
+将原有 <strong>chainWebpack</strong> 中的 <strong>config.resolve.alias.set</strong> 中的内容,复制到 <strong>resolve.alias</strong> 下,如果是文件夹,需要补充路径斜杠,如<code>config.resolve.alias.set('@', path.resolve('src'))</code>-&gt;<code>'@': resolve(__dirname, 'src/'),</code></li> <li>修改完毕后删除原有的 vue.config.js</li></ol> <h3 id="d-ts"><a href="#d-ts" class="header-anchor">#</a> d.ts</h3> <p>需要新增以下 2 个 d.ts 声明文件<br></p> <ol><li><strong>env.d.ts</strong></li></ol> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">/// &lt;reference types=&quot;vite/client&quot; /&gt;</span>
+
+<span class="token keyword">declare</span> <span class="token keyword">module</span> <span class="token string">&quot;*.vue&quot;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">import</span> <span class="token keyword">type</span> <span class="token punctuation">{</span> DefineComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">;</span>
+	<span class="token comment">// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types</span>
+	<span class="token keyword">const</span> component<span class="token operator">:</span> DefineComponent<span class="token operator">&lt;</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token builtin">any</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+	<span class="token keyword">export</span> <span class="token keyword">default</span> component<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="2"><li><strong>shims.d.ts</strong></li></ol> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> ComponentCustomProperties <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Store <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vuex&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">declare</span> <span class="token keyword">module</span> <span class="token string">&quot;@vue/runtime-core&quot;</span> <span class="token punctuation">{</span>
+	<span class="token comment">// Declare your own store states.</span>
+	<span class="token keyword">interface</span> <span class="token class-name">State</span> <span class="token punctuation">{</span>
+		count<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">interface</span> <span class="token class-name">ComponentCustomProperties</span> <span class="token punctuation">{</span>
+		$store<span class="token operator">:</span> Store<span class="token operator">&lt;</span>State<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">declare</span> <span class="token keyword">module</span> <span class="token string">&quot;*.vue&quot;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">import</span> <span class="token keyword">type</span> <span class="token punctuation">{</span> DefineComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> component<span class="token operator">:</span> DefineComponent<span class="token operator">&lt;</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token builtin">any</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+	<span class="token keyword">export</span> <span class="token keyword">default</span> component<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="针对模块按需加载"><a href="#针对模块按需加载" class="header-anchor">#</a> 针对模块按需加载</h3> <p>vueCli 时的方案可能是使用 <strong>babelPlugins</strong> 实现,如 <strong>babel-plugin-import</strong>
+vite 提供了 2 种按需加载方式,还有种自动导入方式</p> <ol><li><strong>unplugin-auto-import</strong> 该组件为官方推荐使用,但是支持范围较少</li></ol> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> Components <span class="token keyword">from</span> <span class="token string">&quot;unplugin-vue-components/vite&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AntDesignVueResolver <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;./src/libs/ant-design-vue/resolver&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> VxeTableResolver <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;./src/libs/vxe-table/resolver&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token function">Components</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+			resolvers<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token function">VxeTableResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">AntDesignVueResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+			dts<span class="token operator">:</span> <span class="token string">&quot;src/typings/components.d.ts&quot;</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="2"><li><strong>vite-plugin-style-import</strong> 该组件实际是加载组件时自动加上样式路径</li></ol> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> AntDesignVueLib <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;./src/libs/ant-design-vue/resolver&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> VxeTableLib <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;./src/libs/vxe-table/resolver&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+	AndDesignVueResolve<span class="token punctuation">,</span>
+	createStyleImportPlugin<span class="token punctuation">,</span>
+	VxeTableResolve<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vite-plugin-style-import&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token comment">//antdv配置以及VxeTable配置插件</span>
+		<span class="token function">createStyleImportPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+			resolves<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token function">AndDesignVueResolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">VxeTableResolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+			libs<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token function">AntDesignVueLib</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">VxeTableLib</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="3"><li><strong>AutoImport</strong>,这个实际上算是个自动导入方案,非常规按需加载</li></ol> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> AutoImport <span class="token keyword">from</span> <span class="token string">&quot;unplugin-auto-import/vite&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token function">AutoImport</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+			imports<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;vue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;vue-router&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;vue-i18n&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;vuex&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+			dts<span class="token operator">:</span> <span class="token string">&quot;src/typings/auto-imports.d.ts&quot;</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="step-2-修改-vue-变量"><a href="#step-2-修改-vue-变量" class="header-anchor">#</a> STEP 2 修改 VUE 变量</h2> <p>因为修改为 VITE 环境,原先 VUE 变量现在不会进行加载,根据文档,需要全局将 <strong>VUE_<strong>替换为</strong>VITE_</strong></p> <ol><li><p><strong>.env</strong></p> <p><code>VUE_APP_I18N_LOCALE = zh-cn</code>-&gt;<code>VITE_APP_I18N_LOCALE = zh-cn</code></p></li></ol> <h2 id="step-3-process-替换-import-meta"><a href="#step-3-process-替换-import-meta" class="header-anchor">#</a> STEP 3 process 替换 import.meta</h2> <p>需要将 vite 加载的文件种 process 对像替换为 import.meta</p> <p>原先 <strong>node</strong> 读取的部分不需要进行变动,一般只需要修改 <strong>src</strong> 目录下的文件和子文件即可,具体请查看入口文件和相应文件关系
+同样,在 <strong>node 前置环境</strong>(如 vite.config.ts)中定义的如 <strong>process.env</strong> 变量也会继承到 <strong>import.meta.env</strong> 中</p> <p>例如 <code>process.env.VITE_APP_NAME</code>-&gt;<code>import.meta.env.VITE_APP_NAME</code></p> <h2 id="step-4-require-替换-import"><a href="#step-4-require-替换-import" class="header-anchor">#</a> STEP 4 require 替换 import</h2> <p>由于 vite 使用的是 web 特性,在脱离了 <strong>node 前置环境</strong>后,都是使用浏览器环境运行,因此无法使用 require 函数加载文件,需要将原先 require 方法修改为 import</p> <ol><li>加载前引入</li></ol> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token keyword">require</span><span class="token punctuation">(</span><span class="token string">&quot;../package.json&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+</code></pre></div><p>修改为</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> packageJSON <span class="token keyword">from</span> <span class="token string">&quot;../package.json&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> name <span class="token operator">=</span> packageJSON<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="2"><li>异步引入</li></ol> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> packageJSON <span class="token operator">=</span> <span class="token keyword">require</span><span class="token punctuation">(</span><span class="token string">&quot;../package.json&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> packageJSON <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">&quot;../package.json&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> name <span class="token operator">=</span> packageJSON<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="3"><li>require.context 引入</li></ol> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">require</span><span class="token punctuation">.</span><span class="token function">context</span><span class="token punctuation">(</span><span class="token string">&quot;./locales&quot;</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[A-Za-z0-9-_,\s]+\.json$</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span><span class="token punctuation">.</span>meta<span class="token punctuation">.</span><span class="token function">globEager</span><span class="token punctuation">(</span><span class="token string">&quot;./locales/*.json&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>此方法的修改需要注意,<strong>require.context</strong>返回的是一个<strong>方法</strong>,需要使用<strong>keys</strong>进行迭代,import.meta.globEager 返回的是个对像</p> <h2 id="step-5-关于-js-的-import-补充"><a href="#step-5-关于-js-的-import-补充" class="header-anchor">#</a> STEP 5 关于 JS 的 import 补充</h2> <div class="language- extra-class"><pre><code>使用vite后,进行import引入不会自动识别后缀名.因此在非引入文件夹的情况下,需要进行精确到文件名后缀
+</code></pre></div><div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">// import LeftMenu from &quot;./LeftMenu&quot;; // error</span>
+<span class="token keyword">import</span> LeftMenu <span class="token keyword">from</span> <span class="token string">&quot;./LeftMenu.vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> LeftMenu<span class="token punctuation">;</span>
+</code></pre></div><h2 id="step-6-关于-css-的-import-补充"><a href="#step-6-关于-css-的-import-补充" class="header-anchor">#</a> STEP 6 关于 CSS 的 import 补充</h2> <div class="language- extra-class"><pre><code>使用vite后,使用url加载别名不需要使用~号标注解析
+</code></pre></div><div class="language-css extra-class"><pre class="language-css"><code><span class="token atrule"><span class="token rule">@font-face</span></span> <span class="token punctuation">{</span>
+	<span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">&quot;element-icons&quot;</span><span class="token punctuation">;</span>
+	<span class="token comment">/* src: url('~@/assets/fonts/element-icons.ttf'); webpack */</span>
+	<span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">&quot;@/assets/fonts/element-icons.ttf&quot;</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">3/30/2022, 3:43:08 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/guideNotes/assets/js/app.f4c14fc7.js" defer></script><script src="/guideNotes/assets/js/2.66c349bf.js" defer></script><script src="/guideNotes/assets/js/27.7b033025.js" defer></script>
+  </body>
+</html>
