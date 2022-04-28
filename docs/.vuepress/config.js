@@ -37,6 +37,10 @@ module.exports = {
 				text: "前端开发笔记2",
 				items: [
 					{
+						text: "JSDoc",
+						link: "/jsdoc/",
+					},
+					{
 						text: "Vue",
 						items: [
 							{
@@ -57,10 +61,6 @@ module.exports = {
 								link: "/react/reactnative/",
 							},
 						],
-					},
-					{
-						text: "JSDoc",
-						link: "/jsdoc/",
 					},
 				],
 			},
@@ -113,12 +113,19 @@ module.exports = {
 				text: "个人",
 				items: [
 					{
+						text: "nas/sPC",
+						link: "/nastools/",
+					},
+					{
 						text: "docker",
 						link: "/docker/",
 					},
 					{
-						text: "nas/sPC",
-						link: "/nastools/",
+						text: "gitlab",
+						items: [
+							{ text: "gitlab", link: "/gitlab/gitlab/" },
+							{ text: "gitlabRunner", link: "/gitlab/gitlabrunner/" },
+						],
 					},
 					{
 						text: "视频编码",

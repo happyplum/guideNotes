@@ -4,7 +4,7 @@ lang: zh-CN
 heroText: A Notes
 heroImage: /logo.jpg
 actionText: 开始 →
-actionLink: /notes/
+actionLink: /notes/javascript/
 features:
     - title: Notes
       details: 记录日常开发笔记。
