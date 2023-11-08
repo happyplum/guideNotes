@@ -50,6 +50,10 @@ gitlab-runner register
 帐号密码建议使用 setting-CI/CD-变量进行配置
 :::
 
+## 关于 tags
+
+可以限制使用标签的 runner 用来合理分配资源去建立缓存
+
 ## 关于.gitlab-ci.yml
 
 自动编译要用到的配置文件,详情[官方介绍](https://docs.gitlab.com/ee/ci/yaml/index.html)
@@ -60,55 +64,51 @@ gitlab-runner register
 
 ```yml
 stages:
-    - install
-    - build
-    - deploy
+  - install
+  - deploy
 
-image: happyplum/node:16.14.2
+image: happyplum/node:18.18.2
 
 install-job:
-    stage: install
-    tags:
-        - joyware
-    cache:
-        key: "${CI_PROJECT_PATH_SLUG}_${CI_COMMIT_REF_SLUG}"
-        paths:
-            - node_modules/
-            - .yarn/
-            - yarn.lock
-    script:
-        - echo "${WEB_COMMUNITYWEB_NAME}_${CI_COMMIT_REF_SLUG}"
-        - npm config set registry http://10.100.23.60:10010/
-        - yarn install
-
-build-job:
-    stage: build
-    tags:
-        - joyware
-    script:
-        - yarn install
-        - yarn run build
-    cache:
-        key: "${CI_PROJECT_PATH_SLUG}-${CI_COMMIT_REF_SLUG}"
-        paths:
-            - dist
-    artifacts:
-        paths:
-            - dist
+  stage: install
+  only:
+    - master
+    - main
+    - dev
+    - dev-newAPI
+  tags:
+    - joyware
+  artifacts:
+    paths:
+      - dist
+  script:
+    - echo "${WEB_JWENTRY_NAME}_${CI_COMMIT_REF_SLUG}"
+    - echo "NPM Registry Server ${NPM_REG_SERVER}"
+    - |
+      echo -e "npmRegistryServer: \"${NPM_REG_SERVER}\"" >> yarnrc.yml
+    - yrm add jw ${NPM_REG_SERVER}
+    - yrm use jw
+    - yarn install
+    - yarn run build
 
 deploy-job:
-    stage: deploy
-    tags:
-        - joyware
-    before_script:
-        - mkdir -p ~/.ssh
-        - chmod 700 ~/.ssh
-        - echo "${WEB_DEV_SERVER}" > ~/.ssh/known_hosts
-        - chmod 644 ~/.ssh/known_hosts
-        - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    script:
-        - sshpass -p ${SERVER_198_PASSWORD} scp -r ./dist ${SERVER_198_USERNAME}@${WEB_DEV_SERVER}:/home/vcloud/web/${WEB_COMMUNITYWEB_NAME}_${CI_COMMIT_REF_SLUG}
+  stage: deploy
+  only:
+    - master
+    - main
+    - dev
+    - dev-newAPI
+  tags:
+    - joyware
+  before_script:
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - echo ${WEB_JWENTRY_NAME}_${CI_COMMIT_REF_SLUG}
+    - echo ${WEB_DEV_SERVER_USER}@${WEB_DEV_SERVER}
+    - mv ./dist ./${WEB_JWENTRY_NAME}_${CI_COMMIT_REF_SLUG}
+    - sshpass -p ${WEB_DEV_SERVER_PASSWORD} ssh -t ${WEB_DEV_SERVER_USER}@${WEB_DEV_SERVER} "rm -rf /home/vcloud/web/${WEB_JWENTRY_NAME}_${CI_COMMIT_REF_SLUG}"
+    - sshpass -p ${WEB_DEV_SERVER_PASSWORD} scp -r ./${WEB_JWENTRY_NAME}_${CI_COMMIT_REF_SLUG} ${WEB_DEV_SERVER_USER}@${WEB_DEV_SERVER}:/home/vcloud/web/
 ```
 
-分为三个阶段,然后`build`阶段输出`dist`文件夹
+分为两个阶段,然后`install`阶段输出`dist`文件夹
 `deploy`阶段其中`before_script`其实有些配置是无效的,但是为了能稳定使用 scp 先加上了
