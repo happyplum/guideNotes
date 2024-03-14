@@ -103,6 +103,10 @@ module.exports = {
             text: "git",
             link: "/notes/git/",
           },
+          {
+            text: "fnm",
+            link: "/notes/fnm/",
+          },
         ],
       },
       {
