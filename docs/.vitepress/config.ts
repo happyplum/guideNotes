@@ -1,21 +1,16 @@
-const { removePlugin, PLUGINS } = require("@vuepress/markdown");
-module.exports = {
+import { defineConfig } from "vitepress";
+export default defineConfig({
+  lang: "zh-CN",
   title: "PlumNotes",
   description: "李振宇的个人笔记",
   base: "/guideNotes/",
   head: [["link", { rel: "icon", href: "/icon.png" }]],
-  port: 3000,
   markdown: {
     lineNumbers: false,
-    chainMarkdown(config) {
-      removePlugin(config, PLUGINS.EMOJI);
-    },
   },
   themeConfig: {
-    lastUpdated: "最后更新时间",
-    sidebar: "auto",
-    repo: "https://github.com/happyplum/guideNotes",
-    repoLabel: "Github",
+    i18nRouting: false,
+    lastUpdatedText: "最后更新时间",
     nav: [
       {
         text: "前端开发笔记",
@@ -134,13 +129,5 @@ module.exports = {
         ],
       },
     ],
-    sidebar: {},
   },
-  configureWebpack: {
-    resolve: {
-      alias: {
-        "@images": "../images",
-      },
-    },
-  },
-};
+});
