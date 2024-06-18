@@ -102,6 +102,10 @@ export default defineConfig({
             text: "fnm",
             link: "/notes/fnm/",
           },
+          {
+            text: "yarn",
+            link: "/notes/yarn/",
+          },
         ],
       },
       {
