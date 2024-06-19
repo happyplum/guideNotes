@@ -106,6 +106,10 @@ export default defineConfig({
             text: "yarn",
             link: "/notes/yarn/",
           },
+          {
+            text: "packages",
+            link: "/notes/packages/",
+          },
         ],
       },
       {
