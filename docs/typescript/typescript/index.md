@@ -147,6 +147,25 @@ type Record<K extends string, T> = {
 </details>
 :::
 
+### 字面量
+
+字面量常用于代表一个准确的变量
+
+```ts
+let a: "a" = "a";
+let b: 1 = 1;
+let c: true = true;
+```
+
+但是我们经常把他用于联合类型中
+
+```ts
+type Direction = "North" | "South" | "East" | "West";
+let d: Direction;
+d = "North"; //ok
+d = "Center"; //error
+```
+
 ## 类型断言
 
 ```ts
