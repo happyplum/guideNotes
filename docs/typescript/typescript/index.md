@@ -228,3 +228,75 @@ readonly 和 Readonly 有什么区别？
 <p>Readonly 是一个工具类型，类似 Record</p>
 </details>
 :::
+
+## 常用关键字
+
+### typeof
+
+用于获取类型，可以是类，接口，组件等
+
+```ts
+//类型判断
+const a = 1;
+typeof a; // "number"
+
+//赋值建立类型
+const p = { x: 1, y: 2 };
+type P = typeof p; // { x: number; y: number; }
+
+//获取对象
+type Point = { x: number; y: number };
+const p: Point = { x: 1, y: 2 };
+typeof p; // Point
+
+//获取组件
+import Compose from "@/compose";
+typeof Compose; // ComposeType{props,emits....}
+
+//变态的使用方法,用于快速建立值的联合类型
+const p = { x: "1", y: 2 };
+type P = typeof p; // { x: number; y: number; }
+type VALUE = P[keyof P]; // "1" | 2
+```
+
+### keyof
+
+用于获取 Object 的 key 值
+
+```ts
+type Point = { x: number; y: number };
+type P = keyof Point; // "x" | "y" 返回了字面量的联合类型
+```
+
+```tip
+keyof,typeof可以组合使用
+```
+
+### instanceof
+
+用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上
+
+```ts
+function Person(name) {
+  this.name = name;
+}
+
+let person = new Person("Alice");
+
+console.log(person instanceof Person); // true
+console.log(person instanceof Object); // true
+```
+
+### in
+
+用于检查一个属性是否存在于指定的对象中
+
+```ts
+let person = {
+  name: "Alice",
+  age: 25,
+};
+
+console.log("name" in person); // true
+console.log("gender" in person); // false
+```
