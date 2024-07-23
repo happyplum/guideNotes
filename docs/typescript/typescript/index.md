@@ -8,14 +8,6 @@ sidebar: auto
 本笔记主要记录一些 ts 的常用功能
 :::
 
-## 为什么要使用 TypeScript
-
-1. 代码提示
-2. 类型检查
-3. 代码重构
-4. 代码优化
-5. 代码维护
-
 ## 基本类型
 
 ### 布尔值
@@ -180,6 +172,44 @@ let strLength: number = (<string>someValue).length;
 ```ts
 type StringOrNumber = string | number;
 let myFavoriteNumber: StringOrNumber = "seven";
+let myFavoriteNumber2: StringOrNumber2 = 123;
+
+type Person = {
+  age: number;
+  name: string;
+};
+const person: Person = {
+  age: 18,
+  name: "llo",
+};
+```
+
+## interface
+
+interface 的优势就是可以进行合并
+
+```ts
+interface Person {
+  name: string;
+}
+interface Person {
+  age: number;
+}
+const person: Person = {
+  age: 18,
+  name: "llo",
+};
+```
+
+我基本用在内置的 window 变量上注册新的自定义属性
+
+```ts
+interface Window {
+  getDictByLookUpName: (string) => LookUpName[];
+  filterDictByLookUpNameAndValue: (string, any) => LookUpName;
+  APP: any;
+  echarts: any;
+}
 ```
 
 ## 只读 Readonly
@@ -299,4 +329,60 @@ let person = {
 
 console.log("name" in person); // true
 console.log("gender" in person); // false
+```
+
+### declare
+
+declare 只用于 d.ts 的声明文件，用于标注全局声明
+:::tip
+d.ts 是声明文件，在 ts 的 include 中配置加载
+:::
+
+```ts
+// 针对 namespace global 的增加定义
+declare global {
+  namespace NodeJS {
+    interface Global {
+      echarts: any;
+    }
+  }
+  namespace JSX {
+    // tslint:disable no-empty-interface
+    type Element = VNode;
+    // tslint:disable no-empty-interface
+    type ElementClass = ComponentRenderProxy;
+    interface ElementAttributesProperty {
+      $props: any; // specify the property name to use
+    }
+    interface IntrinsicElements {
+      [elem: string]: any;
+    }
+  }
+}
+```
+
+## 函数
+
+### 定义函数
+
+```ts
+function add(a: number, b: number): number;
+```
+
+### 函数重载&方法重载
+
+一般只要在函数和方法前面定义好函数重载，就可以在函数和方法中定义具体实现
+
+```ts
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+function add(a: number | string, b: number | string): number | string;
+
+###
+
+class A {
+  add(a: number, b: number): number;
+  add(a: string, b: string): string;
+  add(a: number | string, b: number | string): number | string;
+}
 ```
