@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as i,a2 as e}from"./chunks/framework.Cj42D_MX.js";const g=JSON.parse('{"title":"docker","description":"","frontmatter":{},"headers":[],"relativePath":"docker/index.md","filePath":"docker/index.md"}'),t={name:"docker/index.md"},n=e("",6),p=[n];function h(l,o,d,r,c,k){return i(),a("div",null,p)}const y=s(t,[["render",h]]);export{g as __pageData,y as default};
