@@ -31,8 +31,7 @@ let infinityNumber: number = Infinity; //Infinity
 
 ```ts
 let name: string = "a";
-let name: string = "b";
-let name: string = `c`;
+let name: string = `b`;
 ```
 
 ### 数组
