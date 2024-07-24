@@ -7,6 +7,11 @@ export default defineConfig({
   head: [["link", { rel: "icon", href: "/icon.png" }]],
   markdown: {
     lineNumbers: false,
+    emoji: {
+      defs: {
+        "": "",
+      },
+    },
   },
   themeConfig: {
     i18nRouting: false,
