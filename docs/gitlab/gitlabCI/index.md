@@ -17,12 +17,12 @@ chache 有全局和某个步骤中，这里只举例步骤中的
 
 ```yaml
 cache:
-    key: "${CI_PROJECT_PATH_SLUG}_${CI_COMMIT_REF_SLUG}"
-    paths:
-        - node_modules/
-        - .yarn/
-        - yarn.lock
-    #policy: push #push || pull 表示只拉或者只推，默认开始拉结束推
+  key: "${CI_PROJECT_PATH_SLUG}_${CI_COMMIT_REF_SLUG}"
+  paths:
+    - node_modules/
+    - .yarn/
+    - yarn.lock
+  #policy: push #push || pull 表示只拉或者只推，默认开始拉结束推
 ```
 
 ### artifacts
@@ -31,20 +31,21 @@ artifacts：用来在 stage 之间传递 stage 生成物
 同一个 pipline 里不同的 stage 之间共享生成物的，在不同的 pipline 之间不可用。
 
 !!!
-artifacts 只在某个步骤中
+artifacts 只在某个步骤中，用于输出产物，提供给界面下载
 !!!
 
 ```yaml
 artifacts:
-    paths:
-        - dist
+  paths:
+    - dist
 ```
 
 ### space&&colon
 
-在我的配置里有个修改 yarn 仓库用脚本
+在我的配置里有个修改 npm 和 yarn 指向私有仓库用脚本
 
 ```yaml
+- echo -e "registry=${NPM_REG_SERVER}" >> .npmrc
 - echo -e "npmRegistryServer: \"${NPM_REG_SERVER}\"" >> yarnrc.yml
 ```
 
@@ -58,10 +59,10 @@ artifacts:
 
 ```yaml
 - |
-    echo -e "npmRegistryServer: \"${NPM_REG_SERVER}\"" >> yarnrc.yml
+  echo -e "npmRegistryServer: \"${NPM_REG_SERVER}\"" >> yarnrc.yml
 ```
 
 ```yaml
 - >
-    echo -e "npmRegistryServer: \"${NPM_REG_SERVER}\"" >> yarnrc.yml
+  echo -e "npmRegistryServer: \"${NPM_REG_SERVER}\"" >> yarnrc.yml
 ```

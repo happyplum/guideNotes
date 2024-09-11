@@ -19,3 +19,11 @@ systemctl daemon-reload
 systemctl restart docker
 systemctl show --property=Environment docker
 ```
+
+直接 run 镜像的话会因为没指令，直接出现 exit(0)而直接退出，测试镜像可以使用 docker run 测试
+
+```bash
+docker run -d -t -i imageXXX /bin/bash
+```
+
+imageXXX 替换成相应的镜像，但不是每个镜像都有用

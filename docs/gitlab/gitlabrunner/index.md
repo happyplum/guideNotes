@@ -67,26 +67,25 @@ stages:
   - install
   - deploy
 
-image: happyplum/node:18.18.2
+image: happyplum/node:latest
 
 install-job:
   stage: install
   only:
     - master
-    - main
-    - dev
-    - dev-newAPI
   tags:
     - joyware
   artifacts:
     paths:
       - dist
-  script:
+  before_script:
     - echo "${WEB_JWENTRY_NAME}_${CI_COMMIT_REF_SLUG}"
     - echo "NPM Registry Server ${NPM_REG_SERVER}"
     - |
-      echo -e "npmRegistryServer: \"${NPM_REG_SERVER}\"" >> yarnrc.yml
+      echo -e "registry=${NPM_REG_SERVER}" >> .npmrc
+      echo -e "npmRegistryServer: \"${NPM_REG_SERVEyarnR}\"" >> yarnrc.yml
     - yrm add jw ${NPM_REG_SERVER}
+  script:
     - yrm use jw
     - yarn install
     - yarn run build
@@ -95,9 +94,6 @@ deploy-job:
   stage: deploy
   only:
     - master
-    - main
-    - dev
-    - dev-newAPI
   tags:
     - joyware
   before_script:
@@ -112,3 +108,65 @@ deploy-job:
 
 分为两个阶段,然后`install`阶段输出`dist`文件夹
 `deploy`阶段其中`before_script`其实有些配置是无效的,但是为了能稳定使用 scp 先加上了
+
+## 关于.gitlab-ci.yml2
+
+````yml
+stages:
+  - build
+  - docker
+
+image: happyplum/deno:latest
+
+build-job:
+  stage: build
+  only:
+    - main
+  artifacts:
+    paths:
+      - server
+  before_script:
+    - |
+      echo "NPM Registry Server ${NPM_REG_SERVER}"
+      rm -rf .npmrc
+      echo -e "registry=${NPM_REG_SERVER}" >> .npmrc
+  script:
+    - deno task build
+
+build-docker:
+  stage: docker
+  image: docker:latest
+  only:
+    - main
+  when: manual
+  artifacts:
+    paths:
+      - notes.docker.tar
+  before_script:
+    - unset DOCKER_HOST #fix Error dial tcp: lookup localhost on 8.8.8.8:53: no such host
+  script:
+    - docker build -t notes:latest .
+    - docker save notes:latest > notes.docker.tar
+    - ls -l
+  needs:
+    - build-job
+    ```
+````
+
+分为两个阶段,然后`install`阶段输出`server`文件夹
+`build-docker`阶段使用单独的`docker:latest`镜像,并且由于配置了`when: manual`需要在 gitlab CI/CD 上手动运行，手动运行后会生成 notes.docker.tar 为 docker 镜像，可以用 import 导入到 docker image。
+关于`unset DOCKER_HOST`，必须设置，不然会尝试 ping docker 地址，或许需要设置 etc/host 中 localhost 为 127.0.0.1,未测试
+
+## 关于 docker runnner 报错
+
+在 trueNas 中 docker runner 所建立的镜像都会提示
+
+`But, it's easier to create a docker network with IPv6 enabled, so that it doesn't need to be disabled on IPv4- only interfaces. It's now just --ipv6 in the network create command, or enable_ipv6: true in compose.`
+
+这是因为容器尝试禁用 ipv6，但是网络无法配置。
+docker 大于 26.0.2 的版本会尝试设置 ipv6，但是 trueNas 并不能设置 net，请安装 26.0.1 版本的 docker
+27 版本可以直接创建启用 v6 的网络，启用 v6 可能就不会去尝试禁用 v6 导致出错了
+
+```bash
+apt-get install docker-ce=5:26.0.1-1~debian.12~bookworm docker-ce-cli=5:26.0.1-1~debian.12~bookworm
+```
