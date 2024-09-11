@@ -9,8 +9,9 @@ sidebar: auto
 详细可以查看 typescript[https://www.typescriptlang.org/docs/handbook/utility-types.html]
 :::
 
-## Parameters<Type>
+## Parameters
 
+`Parameters<Type>`
 根据函数的传参生成一个元组型 Type
 
 ```ts
@@ -34,8 +35,9 @@ type T1 = [
 ];
 ```
 
-## ReturnType<Type>
+## ReturnType
 
+`ReturnType<Type>`
 根据函数的返回值生成一个类型 Type
 
 ```ts
@@ -47,8 +49,9 @@ type T1 = {
 };
 ```
 
-## Partial<Type>
+## Partial
 
+`Partial<Type>`
 根据类型 Type 生成一个可选属性的新类型
 
 ```ts
@@ -73,8 +76,9 @@ const todo1: TodoPreview = {
 };
 ```
 
-## Pick<Type, Keys>
+## Pick
 
+`Pick<Type, Keys>`
 从类型 Type 中根据 Keys 所选属性构造一个新的类型
 
 ```ts
@@ -99,8 +103,9 @@ const todo: TodoPreview = {
 const todo: TodoPreview;
 ```
 
-## Omit<Type, Keys>
+## Omit
 
+`Omit<Type, Keys>`
 从类型 Type 中根据 keys 剔除所选属性构造一个新的类型，和 Pick 相反
 
 ```ts
@@ -123,8 +128,9 @@ const todo: TodoPreview = {
 const todo: TodoPreview;
 ```
 
-## Exclude<UnionType, ExcludedUnion>
+## Exclude
 
+`Exclude<UnionType, ExcludedUnion>`
 针对联合类型的排除，进行联合类型的排除构建一个新的联合类型
 
 ```ts
@@ -161,8 +167,9 @@ type T3 =
     };
 ```
 
-## Extract<Type, Union>
+## Extract
 
+`Extract<Type, Union>`
 针对联合类型的提取，根据联合类型中的匹配去提取构建一个新的联合类型,和 Exclude 相反
 
 ```ts
