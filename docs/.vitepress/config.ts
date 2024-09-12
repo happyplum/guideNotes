@@ -79,7 +79,13 @@ export default defineConfig({
           },
           {
             text: "工具",
-            items: [{ text: "自定义工具", link: "/tools/cli/" }],
+            items: [
+              { text: "cli", link: "/tools/cli/" },
+              {
+                text: "fnm",
+                link: "/tools/fnm/",
+              },
+            ],
           },
         ],
       },
@@ -122,16 +128,23 @@ export default defineConfig({
         items: [
           {
             text: "nas/sPC",
-            link: "/nastools/",
+            items: [
+              { text: "nastools", link: "/nastools/" },
+              { text: "trueNas", link: "/nastools/trueNas/" },
+            ],
           },
           {
             text: "docker",
-            link: "/docker/",
+            items: [
+              { text: "docker", link: "/docker/" },
+              { text: "dockerFile", link: "/docker/dockerFile/" },
+            ],
           },
           {
             text: "gitlab",
             items: [
               { text: "gitlab", link: "/gitlab/gitlab/" },
+              { text: "gitlabCI", link: "/gitlab/gitlabCI/" },
               { text: "gitlabRunner", link: "/gitlab/gitlabrunner/" },
             ],
           },
