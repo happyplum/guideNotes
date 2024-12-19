@@ -70,3 +70,26 @@ sidebar: auto
 ```ts
 "exclude": ["dist","node_modules"]
 ```
+
+## TS6310
+
+关于 TS6310 基本是由于使用了 references 进行模块化
+但是模块下的 noEmit 设置为了 true
+
+可以在 tsconfig.json 下( references 同级)增加`"files": []`来避免错误
+
+例
+
+```ts
+{
+	"files": [],
+	"references": [
+		{
+			"path": "./tsconfig.config.json"
+		},
+		{
+			"path": "./tsconfig.vue.json"
+		},
+	]
+}
+```
