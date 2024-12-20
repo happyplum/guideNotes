@@ -31,6 +31,10 @@ export default defineConfig({
               { text: "ts.config", link: "/typescript/tsconfig/" },
             ],
           },
+          {
+            text: "CSS",
+            items: [{ text: "sass", link: "/css/sass/" }],
+          },
         ],
       },
       {
