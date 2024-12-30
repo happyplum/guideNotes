@@ -66,6 +66,15 @@ export default defineConfig({
               },
             ],
           },
+          {
+            text: "Electron",
+            items: [
+              {
+                text: "vite/Vue3",
+                link: "/electron/vite_vue3/",
+              },
+            ],
+          },
         ],
       },
       {
