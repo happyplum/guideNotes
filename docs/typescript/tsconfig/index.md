@@ -93,3 +93,9 @@ sidebar: auto
 	]
 }
 ```
+
+## compilerOptions.composite
+
+在使用`references`引入模块时，子模块需要设置`composite`来表示自己的定位。
+true 表示需要项目需要参与编译,tsc 后会生成 js 文件
+false 表示只用于类型推断,tsc 时不参与编译
