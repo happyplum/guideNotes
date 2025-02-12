@@ -20,10 +20,10 @@ export default defineConfig({
       {
         text: "前端开发笔记",
         items: [
-          {
-            text: "JavaScript",
-            link: "/javascript/",
-          },
+          // {
+          //   text: "JavaScript",
+          //   link: "/javascript/",
+          // },
           {
             text: "TypeScript",
             items: [
@@ -44,19 +44,19 @@ export default defineConfig({
             text: "JSDoc",
             link: "/jsdoc/",
           },
-          {
-            text: "Vue",
-            items: [
-              {
-                text: "Vue2",
-                link: "/vue/vue2/",
-              },
-              {
-                text: "Vue3",
-                link: "/vue/vue3/",
-              },
-            ],
-          },
+          // {
+          //   text: "Vue",
+          //   items: [
+          //     {
+          //       text: "Vue2",
+          //       link: "/vue/vue2/",
+          //     },
+          //     {
+          //       text: "Vue3",
+          //       link: "/vue/vue3/",
+          //     },
+          //   ],
+          // },
           {
             text: "React",
             items: [
