@@ -137,6 +137,15 @@ export default defineConfig({
         ],
       },
       {
+        text: "AI",
+        items: [
+          {
+            text: "模型",
+            link: "/ai/model/",
+          },
+        ],
+      },
+      {
         text: "个人",
         items: [
           {
