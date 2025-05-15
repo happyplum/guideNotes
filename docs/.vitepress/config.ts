@@ -92,13 +92,11 @@ export default defineConfig({
           },
           {
             text: "工具",
-            items: [
-              { text: "cli", link: "/tools/cli/" },
-              {
-                text: "fnm",
-                link: "/tools/fnm/",
-              },
-            ],
+            items: [{ text: "cli", link: "/tools/cli/" }],
+          },
+          {
+            text: "Format",
+            items: [{ text: "prettier", link: "/format/prettier/" }],
           },
         ],
       },
