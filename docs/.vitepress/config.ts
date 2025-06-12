@@ -141,6 +141,10 @@ export default defineConfig({
             text: "模型",
             link: "/ai/model/",
           },
+          {
+            text: "失败记录",
+            link: "/ai/failed/",
+          },
         ],
       },
       {
