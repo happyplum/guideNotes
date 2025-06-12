@@ -145,6 +145,10 @@ export default defineConfig({
             text: "失败记录",
             link: "/ai/failed/",
           },
+          {
+            text: "minimind",
+            link: "/ai/minimind/",
+          },
         ],
       },
       {
