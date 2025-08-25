@@ -27,7 +27,8 @@ export default defineConfig({
           {
             text: "TypeScript",
             items: [
-              { text: "TypeScript", link: "/typescript/typescript/" },
+              { text: "base", link: "/typescript/base/" },
+              { text: "utility", link: "/typescript/utility/" },
               { text: "ts.config", link: "/typescript/tsconfig/" },
             ],
           },
