@@ -7,6 +7,6 @@
     "depoly": "powershell ./depoly.ps1"
   },
   "devDependencies": {
-    "vitepress": "^1.6.3"
+    "vitepress": "^1.6.4"
   }
 }
