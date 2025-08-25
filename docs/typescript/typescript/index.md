@@ -360,6 +360,22 @@ declare global {
 }
 ```
 
+### infer
+
+按照定义是自行推导类型为一个自定义字符"R"
+“自定义字符”可以是任意字符，不一定是 R，和泛型的定义是一个意思
+用于获取传入函数的返回结果类型
+
+```ts
+type ReturnType<T> = T extends (...args: any) => infer R ? R : T;
+
+type sum = (a: number, b: number) => number;
+type concat = (a: any[], b: any[]) => any[];
+
+let sumResult: ReturnType<sum>; //number
+let concatResult: ReturnType<concat>; //any[]
+```
+
 ## 函数
 
 ### 定义函数
