@@ -42,7 +42,7 @@ export default defineConfig({
             items: [
               {
                 text: "ReactNative",
-                link: "/react/reactnative/",
+                link: "/react/react/",
               },
             ],
           },
@@ -66,6 +66,15 @@ export default defineConfig({
           {
             text: "JSDoc",
             link: "/jsdoc/",
+          },
+          {
+            text: "移动端",
+            items: [
+              {
+                text: "ReactNative",
+                link: "/react/reactnative/",
+              },
+            ],
           },
           {
             text: "Electron",
