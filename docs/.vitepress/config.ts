@@ -18,33 +18,12 @@ export default defineConfig({
     lastUpdatedText: "最后更新时间",
     nav: [
       {
-        text: "前端开发笔记",
+        text: "前端基础笔记",
         items: [
           // {
           //   text: "JavaScript",
           //   link: "/javascript/",
           // },
-          {
-            text: "TypeScript",
-            items: [
-              { text: "base", link: "/typescript/base/" },
-              { text: "utility", link: "/typescript/utility/" },
-              { text: "ts.config", link: "/typescript/tsconfig/" },
-            ],
-          },
-          {
-            text: "CSS",
-            items: [{ text: "sass", link: "/css/sass/" }],
-          },
-        ],
-      },
-      {
-        text: "前端开发笔记2",
-        items: [
-          {
-            text: "JSDoc",
-            link: "/jsdoc/",
-          },
           // {
           //   text: "Vue",
           //   items: [
@@ -66,6 +45,27 @@ export default defineConfig({
                 link: "/react/reactnative/",
               },
             ],
+          },
+          {
+            text: "CSS",
+            items: [{ text: "sass", link: "/css/sass/" }],
+          },
+        ],
+      },
+      {
+        text: "前端开发笔记",
+        items: [
+          {
+            text: "TypeScript",
+            items: [
+              { text: "base", link: "/typescript/base/" },
+              { text: "utility", link: "/typescript/utility/" },
+              { text: "ts.config", link: "/typescript/tsconfig/" },
+            ],
+          },
+          {
+            text: "JSDoc",
+            link: "/jsdoc/",
           },
           {
             text: "Electron",
@@ -132,6 +132,15 @@ export default defineConfig({
           {
             text: "packages",
             link: "/notes/packages/",
+          },
+        ],
+      },
+      {
+        text: "脚本",
+        items: [
+          {
+            text: "PowerShell",
+            link: "/script/powershell/",
           },
         ],
       },
