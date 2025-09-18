@@ -37,15 +37,15 @@ export default defineConfig({
           //     },
           //   ],
           // },
-          {
-            text: "React",
-            items: [
-              {
-                text: "ReactNative",
-                link: "/react/reactnative/",
-              },
-            ],
-          },
+          // {
+          //   text: "React",
+          //   items: [
+          //     {
+          //       text: "React",
+          //       link: "/react/React/",
+          //     },
+          //   ],
+          // },
           {
             text: "CSS",
             items: [{ text: "sass", link: "/css/sass/" }],
