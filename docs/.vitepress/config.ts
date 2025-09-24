@@ -91,6 +91,19 @@ export default defineConfig({
         ],
       },
       {
+        text: "后端开发笔记",
+        items: [
+          {
+            text: "Deno",
+            items: [
+              { text: "base", link: "/deno/base" },
+              { text: "dockerfile", link: "/deno/dockerfile" },
+              { text: "runner", link: "/deno/gitlabrunner" },
+            ],
+          },
+        ],
+      },
+      {
         text: "脚手架",
         items: [
           {
