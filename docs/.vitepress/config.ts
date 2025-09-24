@@ -20,10 +20,13 @@ export default defineConfig({
       {
         text: "前端基础笔记",
         items: [
-          // {
-          //   text: "JavaScript",
-          //   link: "/javascript/",
-          // },
+          {
+            text: "JavaScript",
+            items: [
+              { text: "base", link: "/javascript/base/" },
+              { text: "note", link: "/javascript/note/" },
+            ],
+          },
           // {
           //   text: "Vue",
           //   items: [
