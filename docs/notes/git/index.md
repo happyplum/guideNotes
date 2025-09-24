@@ -20,3 +20,13 @@ sidebar: auto
 4. 将需要拆分的文件使用`git commit -m xxx`进行分别提交,提交
 5. 使用`git rebase --continue`继续变基,等待变基完毕即可
 6. 由于 rebase 后 hash 修改,使用`git push -f`提交覆盖云端
+
+## 关于误删除
+
+首先查询所有历史操作，以下命令都可
+`git log -g`
+`git reflog show`
+
+找到对应的logHash
+
+`git reset -hard logHash`
