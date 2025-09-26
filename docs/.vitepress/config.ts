@@ -53,6 +53,15 @@ export default defineConfig({
             text: "CSS",
             items: [{ text: "sass", link: "/css/sass/" }],
           },
+          {
+            text: "音视频",
+            items: [
+              {
+                text: "mse",
+                link: "/javascript/mse/",
+              },
+            ],
+          },
         ],
       },
       {
