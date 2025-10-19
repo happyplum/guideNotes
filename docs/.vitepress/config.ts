@@ -60,6 +60,10 @@ export default defineConfig({
                 text: "mse",
                 link: "/javascript/mse/",
               },
+              {
+                text: "内存溢出",
+                link: "/javascript/audioContext/",
+              },
             ],
           },
         ],
