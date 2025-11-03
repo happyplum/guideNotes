@@ -4,6 +4,27 @@ sidebar: auto
 
 # GIT 笔记
 
+## Rebase
+
+```bash
+# 基本变基
+git rebase <目标分支>
+
+# 交互式变基（最常用）
+git rebase -i HEAD~n       # 修改最近n个提交
+git rebase -i <提交哈希>   # 基于指定提交变基
+
+# 变基操作命令
+git rebase --continue      # 解决冲突后继续
+git rebase --abort         # 中止变基
+git rebase --skip          # 跳过当前提交
+```
+
+- 整理本地提交历史
+- 保持线性、清晰的提交历史
+- 更新功能分支（无合并提交）
+- 修改、合并、拆分或删除提交
+
 ## 关于历史包拆分
 
 比如我现在有 3 个提交
@@ -27,6 +48,6 @@ sidebar: auto
 `git log -g`
 `git reflog show`
 
-找到对应的logHash
+找到对应的 logHash
 
-`git reset -hard logHash`
+`git reset --hard logHash`
