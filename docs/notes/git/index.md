@@ -4,6 +4,12 @@ sidebar: auto
 
 # GIT 笔记
 
+## 怎么使用vscode编辑git info
+
+```bash
+git config --global core.editor "code --wait"
+```
+
 ## Rebase
 
 ```bash
