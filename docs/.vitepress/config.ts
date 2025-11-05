@@ -190,16 +190,30 @@ export default defineConfig({
         text: "AI",
         items: [
           {
-            text: "模型",
-            link: "/ai/model/",
+            text: "训练",
+            items: [
+              {
+                text: "模型",
+                link: "/ai/model/",
+              },
+              {
+                text: "失败记录",
+                link: "/ai/failed/",
+              },
+              {
+                text: "minimind",
+                link: "/ai/minimind/",
+              },
+            ],
           },
           {
-            text: "失败记录",
-            link: "/ai/failed/",
-          },
-          {
-            text: "minimind",
-            link: "/ai/minimind/",
+            text: "开发",
+            items: [
+              {
+                text: "speckit",
+                link: "/ai/speckit/",
+              },
+            ],
           },
         ],
       },
