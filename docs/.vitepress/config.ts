@@ -130,7 +130,7 @@ export default defineConfig({
             ],
           },
           {
-            text: "工具",
+            text: "Cli工具",
             items: [{ text: "cli", link: "/tools/cli/" }],
           },
           {
@@ -140,7 +140,7 @@ export default defineConfig({
         ],
       },
       {
-        text: "工具",
+        text: "前端工具",
         items: [
           {
             text: "打包相关",
