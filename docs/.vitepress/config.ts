@@ -174,11 +174,15 @@ export default defineConfig({
         ],
       },
       {
-        text: "脚本",
+        text: "其他",
         items: [
           {
             text: "PowerShell",
             link: "/script/powershell/",
+          },
+          {
+            text: "Conda",
+            link: "/script/conda/",
           },
         ],
       },
