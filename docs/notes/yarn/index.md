@@ -22,3 +22,8 @@ packages.json 中可以设置 resolutions 属性来进行固化，配置和 depe
   }
 }
 ```
+
+## 关于自动生成 packageManager
+
+可以通过系统的设置环境变量关闭
+`COREPACK_ENABLE_AUTO_PIN=0`
