@@ -10,6 +10,16 @@ sidebar: auto
 git config --global core.editor "code --wait"
 ```
 
+## 一些必要的全局配置
+
+```bash
+#全局rebase
+git config --global pull.rebase true
+
+#大小写敏感
+git config --global core.ignorecase false
+```
+
 ## Rebase
 
 ```bash
@@ -57,3 +67,9 @@ git rebase --skip          # 跳过当前提交
 找到对应的 logHash
 
 `git reset --hard logHash`
+
+## 关于ssh agent代理
+
+### WARNING: UNPROTECTED PRIVATE KEY FILE!
+
+https://superuser.com/questions/1296024/windows-ssh-permissions-for-private-key-are-too-open
