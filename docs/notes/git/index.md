@@ -70,6 +70,9 @@ git rebase --skip          # 跳过当前提交
 
 ## 关于ssh agent代理
 
+### windows
+https://blog.csdn.net/jchnlau/article/details/140714151
+
 ### WARNING: UNPROTECTED PRIVATE KEY FILE!
 
 https://superuser.com/questions/1296024/windows-ssh-permissions-for-private-key-are-too-open
