@@ -76,3 +76,35 @@ https://blog.csdn.net/jchnlau/article/details/140714151
 ### WARNING: UNPROTECTED PRIVATE KEY FILE!
 
 https://superuser.com/questions/1296024/windows-ssh-permissions-for-private-key-are-too-open
+
+### 样例
+
+以id_rsa为例
+
+git 使用 windows ssh
+```bash
+git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
+#全局使用windows ssh，来调起windows自带的ssh anget
+```
+
+~/.ssh
+右键-属性-安全，确保id_rsa安全只有当前用户一人
+
+```bash
+ssh-add ~/.ssh/id_rsa
+#输入密码
+```
+
+配置~/.ssh/config
+使用`git remote get-url origin`可以获取当前git的 用户@服务器
+如:git@codeup.aliyun.com
+那么配置文件格式如下
+
+```config
+Host codeup.aliyun.com
+    HostName codeup.aliyun.com
+    User git
+    ForwardAgent yes
+    IdentityFile ~/.ssh/id_rsa
+    AddKeysToAgent yes
+```
