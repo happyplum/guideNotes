@@ -81,6 +81,14 @@ Set-Service ssh-agent -StartupType Automatic
 
 # 启动服务
 Start-Service ssh-agent
+
+#将私钥添加到ssh-agent
+#添加私钥
+ssh-add ~/.ssh/id_rsa
+#查询添加哪些私钥
+ssh-add -l
+#删除所有私钥
+ssh-add -D
 ```
 
 ### windows
