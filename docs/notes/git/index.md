@@ -70,7 +70,21 @@ git rebase --skip          # 跳过当前提交
 
 ## 关于ssh agent代理
 
+## windows-powershell
+
+```powershell
+# 检查服务状态
+Get-Service ssh-agent
+
+# 设置服务启动类型为自动
+Set-Service ssh-agent -StartupType Automatic
+
+# 启动服务
+Start-Service ssh-agent
+```
+
 ### windows
+
 https://blog.csdn.net/jchnlau/article/details/140714151
 
 ### WARNING: UNPROTECTED PRIVATE KEY FILE!
@@ -82,6 +96,7 @@ https://superuser.com/questions/1296024/windows-ssh-permissions-for-private-key-
 以id_rsa为例
 
 git 使用 windows ssh
+
 ```bash
 git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 #全局使用windows ssh，来调起windows自带的ssh anget
