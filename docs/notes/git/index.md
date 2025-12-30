@@ -18,6 +18,9 @@ git config --global pull.rebase true
 
 #大小写敏感
 git config --global core.ignorecase false
+
+#文件检查
+git config --global core.fsmonitor false
 ```
 
 ## Rebase
