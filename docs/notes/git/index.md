@@ -21,6 +21,9 @@ git config --global core.ignorecase false
 
 #文件检查
 git config --global core.fsmonitor false
+
+#CRLF
+git config --global core.autocrlf input
 ```
 
 ## Rebase
